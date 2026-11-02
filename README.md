@@ -1,56 +1,72 @@
 # HLU TOOLS — Website giới thiệu dự án
 
-Single-page tĩnh: `index.html` + `style.css` + `script.js`, không framework nặng, chạy ngay không cần build.
-
-## Cách chạy
-- Cách nhanh nhất: mở file `index.html` bằng trình duyệt (double-click).
-- Hoặc chạy local server (để font / đường dẫn chuẩn hơn):
-  ```bash
-  cd hlu-tools-website
-  python3 -m http.server 8000
-  # mở http://localhost:8000
-  ```
-
-## Deploy
-- **GitHub Pages:** push cả thư mục này lên repo, bật Pages (branch main, root).
-- **Vercel / Netlify:** kéo-thả thư mục này vào dashboard là chạy, không cần cấu hình build.
-- Lưu ý: trang này là trang giới thiệu mới, khác với web HLU TOOLS cũ đã đóng (hlutools.github.io/hlu về 404 từ 2026-11-01). Đừng gắn link cũ vào đây cho tới khi anh mở lại web đó.
-
-## Cách chỉnh màu neon
-Mở `style.css`, sửa block `:root` ở đầu file:
-- `--vnpt: #00AEEF` (xanh VNPT chính)
-- `--vnpt-dark: #0066B3`
-- `--cyan: #00F0FF` (neon chính)
-- `--violet: #7B61FF` (accent phụ)
-- `--bg1 / --bg2`: nền tối gradient
-
-Muốn bớt glow (máy yếu): giảm các giá trị `box-shadow` có `0 0 28px…` trong `.glass-card:hover` và `.btn-primary`.
-
-## Cách thêm tool mới
-Trong `index.html`, tìm `<div id="toolsGrid">`, copy 1 block `<article class="tool-card">` và sửa:
-1. `data-category`: `tien-ich` | `toi-uu` | `hoc-tap` | `khac` (phải khớp nút filter).
-2. Icon (emoji trong `.card-icon`), tên, mô tả.
-3. Tag: `tag-free` (Miễn phí) | `tag-beta` (Beta) | `tag-soon` (Sắp ra mắt).
-4. Nút “Chi tiết”: thay `href="#contact"` bằng link thật (trang tải / bài viết / repo).
-
-## Những chỗ CẦN anh điền thật (đang để placeholder)
-| Chỗ | Trong file | Ghi chú |
-|---|---|---|
-| Mô tả GHTT | `index.html` (card GHTT, có ghi `TODO`) | Chưa có mô tả thật nên không bịa |
-| Link Facebook / GitHub / Zalo / cộng đồng | `index.html` (mục Liên hệ, `href="#"`) | Thay link thật vào |
-| Email liên hệ | `index.html` (`mailto:hello@hlutools.example`) | Đang là email ví dụ |
-| Số liệu 8+ / 25+ | `index.html` (mục `.stats`) | 25+ là số nội bộ đã biết; 8+ đếm theo số card hiện tại — sửa khi thêm/bớt tool |
-| Mốc “Sắp tới” roadmap | `index.html` (timeline-item todo) | Chốt danh sách + thời gian rồi điền |
-| Ảnh og:image | `assets/og-cover.svg` | Đang là ảnh SVG tự vẽ; thay bằng ảnh thật nếu muốn share Facebook đẹp hơn |
-
-## Form liên hệ
-Hiện chỉ là UI demo: bấm Gửi sẽ hiện “Đã nhận” nhưng **không gửi đi đâu** (không có backend).
-Muốn gửi thật, cách nhẹ nhất: đăng ký Formspree (miễn phí), rồi trong `script.js` thay đoạn submit bằng `fetch` tới endpoint Formspree — hoặc thay form bằng link Google Form.
+Website one-page giới thiệu hệ sinh thái HLU TOOLS, xây dựng bằng HTML5, CSS3 và JavaScript thuần. Không cần framework hoặc bước build.
 
 ## Cấu trúc
+
+```text
+hlu-tools-website/
+├── index.html
+├── style.css
+├── script.js
+├── README.md
+└── assets/
+    ├── favicon.svg
+    ├── hlu-logo.svg
+    └── og-preview.svg
 ```
-index.html   — toàn bộ nội dung, SEO meta, anchor #home #about #tools #roadmap #values #contact
-style.css    — theme neon VNPT, dark mode, glassmorphism, responsive
-script.js    — menu mobile, reveal on scroll, counter, filter tools, cursor glow, form demo
-assets/      — logo.svg, favicon.svg, og-cover.svg (placeholder, thay được)
+
+## Chạy thử
+
+1. Giải nén thư mục.
+2. Mở `index.html` bằng trình duyệt hiện đại.
+3. Để có môi trường gần production hơn, chạy một static server trong thư mục dự án, ví dụ:
+
+   ```bash
+   python -m http.server 8000
+   ```
+
+   Sau đó mở `http://localhost:8000`.
+
+Website không có backend. Google Fonts và Lucide được tải từ CDN; phần nội dung và layout vẫn hiển thị khi CDN không khả dụng, nhưng icon/font có thể dùng fallback.
+
+## Các điểm cần cập nhật trước khi phát hành
+
+- **GHTT:** bổ sung tên đầy đủ, mô tả và tính năng chính thức. Hiện website cố ý giữ nguyên tên viết tắt, không tự suy đoán ý nghĩa.
+- **Ngân hàng câu hỏi:** cập nhật đối tượng sử dụng, lĩnh vực/môn học, ảnh chụp màn hình và trạng thái phát hành.
+- **HLU Clean Pro:** cập nhật nền tảng hỗ trợ, tính năng, phiên bản, ảnh minh họa và link tải.
+- Trong `index.html`, thay các link `href="#"` của Facebook, GitHub, Zalo và cộng đồng bằng URL thực tế; thay `YOUR_EMAIL@example.com` bằng email liên hệ.
+- Form liên hệ hiện chỉ là UI demo, không gửi hoặc lưu dữ liệu. Muốn nhận tin nhắn cần kết nối backend hoặc dịch vụ form.
+- Cập nhật `meta description`, `og:image` và thông tin SEO theo tên miền khi deploy.
+
+## Chỉnh màu
+
+Các màu nằm ở đầu `style.css` trong `:root`:
+
+```css
+:root {
+  --bg: #0a0e1a;
+  --bg-2: #0f1729;
+  --primary: #00aeef;
+  --primary-dark: #0066b3;
+  --cyan: #00f0ff;
+  --violet: #7b61ff;
+  --text: #f4f8ff;
+  --muted: #9baac2;
+}
 ```
+
+Đổi những custom properties này để điều chỉnh theme đồng bộ. Một số hiệu ứng glow dùng alpha của các màu trên; có thể tìm `rgba(0,174,239,...)` và `rgba(0,240,255,...)` để tinh chỉnh độ sáng.
+
+## Thêm công cụ mới
+
+1. Sao chép một thẻ `<article class="tool-card ...">` trong `.tools-grid` ở `index.html`.
+2. Đặt `data-category` theo một hoặc nhiều giá trị: `utility`, `optimize`, `security`, `other`.
+3. Cập nhật icon Lucide, tên, mô tả, trạng thái và tags.
+4. Thêm một nút `.detail-trigger` với `data-product="ma-san-pham"`.
+5. Thêm đối tượng cùng khóa vào `products` trong `script.js` (gồm `kicker`, `title`, `icon`, `description`, `tags`). Bộ lọc và hộp thoại chi tiết sẽ tự nhận dữ liệu theo cấu trúc đó.
+6. Cập nhật số lượng trong nút lọc “Tất cả” và thống kê nếu cần.
+
+## Deploy
+
+Có thể deploy trực tiếp thư mục này lên GitHub Pages, Netlify hoặc Vercel dưới dạng static site. Không cần lệnh build. Đảm bảo `index.html` nằm ở thư mục gốc được publish.
