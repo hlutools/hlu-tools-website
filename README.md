@@ -1,6 +1,6 @@
-# HLU TOOLS — Website giới thiệu dự án
+# HLU — Website giới thiệu hệ sinh thái
 
-Website one-page giới thiệu hệ sinh thái HLU TOOLS, xây dựng bằng HTML5, CSS3 và JavaScript thuần. Không cần framework hoặc bước build.
+Website one-page giới thiệu hệ sinh thái HLU: 4 sản phẩm cùng mang dấu ấn HLU — HLU TOOLS, HLU QUESTIONS BANK, HLU 5S và HLU Clean Pro. Xây dựng bằng HTML5, CSS3 và JavaScript thuần. Không cần framework hoặc bước build.
 
 ## Cấu trúc
 
@@ -32,9 +32,9 @@ Website không có backend. Google Fonts và Lucide được tải từ CDN; ph�
 
 ## Các điểm cần cập nhật trước khi phát hành
 
-- **GHTT:** bổ sung tên đầy đủ, mô tả và tính năng chính thức. Hiện website cố ý giữ nguyên tên viết tắt, không tự suy đoán ý nghĩa.
-- **Ngân hàng câu hỏi:** cập nhật đối tượng sử dụng, lĩnh vực/môn học, ảnh chụp màn hình và trạng thái phát hành.
-- **HLU Clean Pro:** cập nhật nền tảng hỗ trợ, tính năng, phiên bản, ảnh minh họa và link tải.
+- **Link dùng thử:** bổ sung link dùng thử/tải cho từng sản phẩm (HLU TOOLS, HLU QUESTIONS BANK, HLU 5S, HLU Clean Pro) khi có.
+- **HLU QUESTIONS BANK:** cập nhật ảnh chụp màn hình và số lượng câu hỏi/chủ đề theo phiên bản thực tế.
+- **HLU Clean Pro:** cập nhật ảnh minh họa và link tải theo phiên bản phát hành (Android V4.1, Windows v2.10.0).
 - Trong `index.html`, thay các link `href="#"` của Facebook, GitHub, Zalo và cộng đồng bằng URL thực tế; thay `YOUR_EMAIL@example.com` bằng email liên hệ.
 - Form liên hệ hiện chỉ là UI demo, không gửi hoặc lưu dữ liệu. Muốn nhận tin nhắn cần kết nối backend hoặc dịch vụ form.
 - Cập nhật `meta description`, `og:image` và thông tin SEO theo tên miền khi deploy.

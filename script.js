@@ -102,26 +102,33 @@
 
   // Product detail dialog.
   const products = {
-    clean: {
-      kicker: '01 / OPTIMIZATION',
-      title: 'HLU Clean Pro',
-      icon: 'wand-sparkles',
-      description: 'Bộ công cụ hỗ trợ dọn dẹp và tối ưu thiết bị, hướng đến trải nghiệm gọn nhẹ, trực quan và dễ thao tác. Hãy cập nhật mô tả này theo tính năng và nền tảng phát hành chính thức của sản phẩm.',
-      tags: ['Tiện ích', 'Tối ưu hệ thống', 'Đang phát triển']
+    hlutools: {
+      kicker: '01 / ECOSYSTEM',
+      title: 'HLU TOOLS',
+      icon: 'wrench',
+      description: 'Ứng dụng gốc của hệ sinh thái HLU, dành cho kỹ thuật viên VNPT: tra cứu Tài liệu, Phần mềm, Firmware, Tin tức và E-Learning, cùng các công cụ hỗ trợ xử lý sự cố thực địa như DHCP Explorer. Link dùng thử sẽ được cập nhật sau.',
+      tags: ['KTV VNPT', 'Tra cứu', 'Android', 'Đang sử dụng']
     },
     question: {
       kicker: '02 / LEARNING',
-      title: 'Ngân hàng câu hỏi',
+      title: 'HLU QUESTIONS BANK',
       icon: 'book-open-check',
-      description: 'Nền tảng hỗ trợ lưu trữ, phân loại và tra cứu ngân hàng câu hỏi. Có thể bổ sung tại đây thông tin về đối tượng sử dụng, môn học, cách tìm kiếm và các chức năng chính khi sản phẩm được hoàn thiện.',
-      tags: ['Học tập', 'Tra cứu', 'Đang hoàn thiện']
+      description: 'Ngân hàng câu hỏi E-Learning cho kỹ thuật viên VNPT: tìm nhanh theo từ khóa, phân loại theo chủ đề, dữ liệu được tổng hợp từ nhiều nguồn. Đang chạy tại hlutools.github.io/e-learning, tra cứu được cả khi offline sau khi đã tải trang. Link dùng thử sẽ được cập nhật sau.',
+      tags: ['Học tập', 'Tra cứu', 'E-Learning', 'Đang sử dụng']
     },
-    ghtt: {
-      kicker: '03 / IN DEVELOPMENT',
-      title: 'GHTT',
-      icon: 'blocks',
-      description: 'GHTT là dự án thuộc hệ sinh thái HLU TOOLS. Tên đầy đủ, mục tiêu, tính năng và trạng thái phát hành đang để mở để bạn cập nhật theo thông tin chính thức.',
-      tags: ['Dự án mới', 'Thông tin cập nhật']
+    hlu5s: {
+      kicker: '03 / WORKPLACE',
+      title: 'HLU 5S',
+      icon: 'clipboard-check',
+      description: 'Ứng dụng chấm 5S của VNPT Ninh Bình trên điện thoại (Android, phiên bản 05112026): mở trang 5s.vnptninhbinh.com.vn, đăng nhập bằng SSO VNPT, chấm điểm, đính kèm ảnh trực tiếp từ máy hoặc chụp mới, kéo xuống để làm mới trang. Link dùng thử sẽ được cập nhật sau.',
+      tags: ['5S', 'VNPT', 'Android', 'Đang sử dụng']
+    },
+    clean: {
+      kicker: '04 / OPTIMIZATION',
+      title: 'HLU Clean Pro',
+      icon: 'wand-sparkles',
+      description: 'Bộ công cụ dọn dẹp và tối ưu thiết bị trên cả Android (V4.1) và Windows (v2.10.0): quét rác, giải phóng dung lượng, giao diện gọn nhẹ, trực quan và dễ thao tác, với 2 theme Trắng Pro và Tối Pro trên bản Windows. Link dùng thử sẽ được cập nhật sau.',
+      tags: ['Android', 'Windows', 'Tối ưu hệ thống', 'Đang phát triển']
     }
   };
   const dialog = $('#product-dialog');
@@ -136,7 +143,7 @@
     button.addEventListener('click', () => {
       const product = products[button.dataset.product];
       if (!product || !dialog) return;
-      dialogKicker.textContent = `HLU TOOLS / ${product.kicker}`;
+      dialogKicker.textContent = `HLU / ${product.kicker}`;
       dialogTitle.textContent = product.title;
       dialogDesc.textContent = product.description;
       dialogIcon.innerHTML = `<i data-lucide="${product.icon}" aria-hidden="true"></i>`;
