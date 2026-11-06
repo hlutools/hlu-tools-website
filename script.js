@@ -123,12 +123,12 @@
       description: 'Ứng dụng chấm 5S của VNPT Ninh Bình trên điện thoại (Android, phiên bản 05112026): mở trang 5s.vnptninhbinh.com.vn, đăng nhập bằng SSO VNPT, chấm điểm, đính kèm ảnh trực tiếp từ máy hoặc chụp mới, kéo xuống để làm mới trang. Link dùng thử sẽ được cập nhật sau.',
       tags: ['5S', 'VNPT', 'Android', 'Đang sử dụng']
     },
-    clean: {
-      kicker: '04 / OPTIMIZATION',
-      title: 'HLU Clean Pro',
-      icon: 'wand-sparkles',
-      description: 'Bộ công cụ dọn dẹp và tối ưu thiết bị trên cả Android (V4.1) và Windows (v2.10.0): quét rác, giải phóng dung lượng, giao diện gọn nhẹ, trực quan và dễ thao tác, với 2 theme Trắng Pro và Tối Pro trên bản Windows. Link dùng thử sẽ được cập nhật sau.',
-      tags: ['Android', 'Windows', 'Tối ưu hệ thống', 'Đang phát triển']
+    clm: {
+      kicker: '04 / REPORTING',
+      title: 'HLU CLM',
+      icon: 'shield-check',
+      description: 'Ứng dụng mở Hệ thống Báo cáo Nội bộ (CLM) của VNPT Ninh Bình trên điện thoại (Android, phiên bản 06112026): đăng nhập bằng tài khoản CLM trên màn hình “Sign In to NBH”, làm việc trực tiếp không cần mở trình duyệt, với kéo xuống làm mới, lưu phiên đăng nhập, đính kèm file/ảnh và tải file về máy. Link dùng thử sẽ được cập nhật sau.',
+      tags: ['Báo cáo nội bộ', 'VNPT', 'Android', 'Mới phát hành']
     }
   };
   const dialog = $('#product-dialog');

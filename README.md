@@ -1,6 +1,6 @@
 # HLU — Website giới thiệu hệ sinh thái
 
-Website one-page giới thiệu hệ sinh thái HLU: 4 sản phẩm cùng mang dấu ấn HLU — HLU TOOLS, HLU QUESTIONS BANK, HLU 5S và HLU Clean Pro. Xây dựng bằng HTML5, CSS3 và JavaScript thuần. Không cần framework hoặc bước build.
+Website one-page giới thiệu hệ sinh thái HLU: 4 sản phẩm cùng mang dấu ấn HLU — HLU TOOLS, HLU QUESTIONS BANK, HLU 5S và HLU CLM. Xây dựng bằng HTML5, CSS3 và JavaScript thuần. Không cần framework hoặc bước build.
 
 ## Cấu trúc
 
@@ -32,9 +32,9 @@ Website không có backend. Google Fonts và Lucide được tải từ CDN; ph�
 
 ## Các điểm cần cập nhật trước khi phát hành
 
-- **Link dùng thử:** bổ sung link dùng thử/tải cho từng sản phẩm (HLU TOOLS, HLU QUESTIONS BANK, HLU 5S, HLU Clean Pro) khi có.
+- **Link dùng thử:** bổ sung link dùng thử/tải cho từng sản phẩm (HLU TOOLS, HLU QUESTIONS BANK, HLU 5S, HLU CLM) khi có.
 - **HLU QUESTIONS BANK:** cập nhật ảnh chụp màn hình và số lượng câu hỏi/chủ đề theo phiên bản thực tế.
-- **HLU Clean Pro:** cập nhật ảnh minh họa và link tải theo phiên bản phát hành (Android V4.1, Windows v2.10.0).
+- **HLU CLM:** cập nhật ảnh minh họa và link tải theo phiên bản phát hành (Android, bản 06112026).
 - Trong `index.html`, thay các link `href="#"` của Facebook, GitHub, Zalo và cộng đồng bằng URL thực tế; thay `YOUR_EMAIL@example.com` bằng email liên hệ.
 - Form liên hệ hiện chỉ là UI demo, không gửi hoặc lưu dữ liệu. Muốn nhận tin nhắn cần kết nối backend hoặc dịch vụ form.
 - Cập nhật `meta description`, `og:image` và thông tin SEO theo tên miền khi deploy.
@@ -61,7 +61,7 @@ Các màu nằm ở đầu `style.css` trong `:root`:
 ## Thêm công cụ mới
 
 1. Sao chép một thẻ `<article class="tool-card ...">` trong `.tools-grid` ở `index.html`.
-2. Đặt `data-category` theo một hoặc nhiều giá trị: `utility`, `optimize`, `security`, `other`.
+2. Đặt `data-category` theo một hoặc nhiều giá trị: `utility`, `report`, `security`, `other`.
 3. Cập nhật icon Lucide, tên, mô tả, trạng thái và tags.
 4. Thêm một nút `.detail-trigger` với `data-product="ma-san-pham"`.
 5. Thêm đối tượng cùng khóa vào `products` trong `script.js` (gồm `kicker`, `title`, `icon`, `description`, `tags`). Bộ lọc và hộp thoại chi tiết sẽ tự nhận dữ liệu theo cấu trúc đó.
