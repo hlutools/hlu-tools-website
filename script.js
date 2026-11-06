@@ -105,28 +105,28 @@
     hlutools: {
       kicker: '01 / ECOSYSTEM',
       title: 'HLU TOOLS',
-      icon: 'wrench',
+      image: 'assets/icon-hlutools.png',
       description: 'Ứng dụng gốc của hệ sinh thái HLU, dành cho kỹ thuật viên VNPT: tra cứu Tài liệu, Phần mềm, Firmware, Tin tức và E-Learning, cùng các công cụ hỗ trợ xử lý sự cố thực địa như DHCP Explorer. Link dùng thử sẽ được cập nhật sau.',
       tags: ['KTV VNPT', 'Tra cứu', 'Android', 'Đang sử dụng']
     },
     question: {
       kicker: '02 / LEARNING',
       title: 'HLU QUESTIONS BANK',
-      icon: 'book-open-check',
+      image: 'assets/icon-questions-bank.png',
       description: 'Ngân hàng câu hỏi E-Learning cho kỹ thuật viên VNPT: tìm nhanh theo từ khóa, phân loại theo chủ đề, dữ liệu được tổng hợp từ nhiều nguồn. Đang chạy tại hlutools.github.io/e-learning, tra cứu được cả khi offline sau khi đã tải trang. Link dùng thử sẽ được cập nhật sau.',
       tags: ['Học tập', 'Tra cứu', 'E-Learning', 'Đang sử dụng']
     },
     hlu5s: {
       kicker: '03 / WORKPLACE',
       title: 'HLU 5S',
-      icon: 'clipboard-check',
+      image: 'assets/icon-hlu5s.png',
       description: 'Ứng dụng chấm 5S của VNPT Ninh Bình trên điện thoại (Android, phiên bản 05112026): mở trang 5s.vnptninhbinh.com.vn, đăng nhập bằng SSO VNPT, chấm điểm, đính kèm ảnh trực tiếp từ máy hoặc chụp mới, kéo xuống để làm mới trang. Link dùng thử sẽ được cập nhật sau.',
       tags: ['5S', 'VNPT', 'Android', 'Đang sử dụng']
     },
     clm: {
       kicker: '04 / REPORTING',
       title: 'HLU CLM',
-      icon: 'shield-check',
+      image: 'assets/icon-clm.png',
       description: 'Ứng dụng mở Hệ thống Báo cáo Nội bộ (CLM) của VNPT Ninh Bình trên điện thoại (Android, phiên bản 06112026): đăng nhập bằng tài khoản CLM trên màn hình “Sign In to NBH”, làm việc trực tiếp không cần mở trình duyệt, với kéo xuống làm mới, lưu phiên đăng nhập, đính kèm file/ảnh và tải file về máy. Link dùng thử sẽ được cập nhật sau.',
       tags: ['Báo cáo nội bộ', 'VNPT', 'Android', 'Mới phát hành']
     }
@@ -146,7 +146,7 @@
       dialogKicker.textContent = `HLU / ${product.kicker}`;
       dialogTitle.textContent = product.title;
       dialogDesc.textContent = product.description;
-      dialogIcon.innerHTML = `<i data-lucide="${product.icon}" aria-hidden="true"></i>`;
+      dialogIcon.innerHTML = `<img src="${product.image}" alt="">`;
       dialogTags.replaceChildren(...product.tags.map(tag => {
         const span = document.createElement('span');
         span.className = 'tag';
