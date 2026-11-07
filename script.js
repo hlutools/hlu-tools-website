@@ -113,21 +113,21 @@
       kicker: '02 / HỌC TẬP',
       title: 'HLU QUESTIONS BANK',
       image: 'assets/icon-questions-bank.png?v=2',
-      description: 'Ngân hàng câu hỏi E-Learning cho kỹ thuật viên VNPT: tìm nhanh theo từ khóa, phân loại theo chủ đề, dữ liệu được tổng hợp từ nhiều nguồn. Đang chạy tại hlutools.github.io/e-learning, tra cứu được cả khi ngoại tuyến sau khi đã tải trang. Liên kết dùng thử sẽ được cập nhật sau.',
+      description: 'Ngân hàng câu hỏi E-Learning cho kỹ thuật viên VNPT: tìm nhanh theo từ khóa, phân loại theo chủ đề, dữ liệu được tổng hợp từ nhiều nguồn. Tra cứu được cả khi ngoại tuyến sau khi đã tải trang. Liên kết dùng thử sẽ được cập nhật sau.',
       tags: ['Học tập', 'Tra cứu', 'E-Learning', 'Đang sử dụng']
     },
     hlu5s: {
       kicker: '03 / NƠI LÀM VIỆC',
       title: 'HLU 5S',
       image: 'assets/icon-hlu5s.png?v=2',
-      description: 'Ứng dụng chấm 5S của VNPT Ninh Bình trên điện thoại (Android, phiên bản 05112026): mở trang 5s.vnptninhbinh.com.vn, đăng nhập bằng SSO VNPT, chấm điểm, đính kèm ảnh trực tiếp từ máy hoặc chụp mới, kéo xuống để làm mới trang. Liên kết dùng thử sẽ được cập nhật sau.',
+      description: 'Ứng dụng chấm 5S của VNPT Ninh Bình trên điện thoại (Android): Ứng dụng thay thế cho việc phải mở trang https://5s.vnptninhbinh.com.vn Ưu điểm gọn gàng, làm việc trực tiếp không cần mở trình duyệt, lưu coockies lâu dài. Liên kết dùng thử sẽ được cập nhật sau.',
       tags: ['5S', 'VNPT', 'Android', 'Đang sử dụng']
     },
     clm: {
       kicker: '04 / BÁO CÁO',
       title: 'HLU CLM',
       image: 'assets/icon-clm.png?v=2',
-      description: 'Ứng dụng mở Hệ thống Báo cáo Nội bộ (CLM) của VNPT Ninh Bình trên điện thoại (Android, phiên bản 06112026): đăng nhập bằng tài khoản CLM trên màn hình “Sign In to NBH”, làm việc trực tiếp không cần mở trình duyệt, với kéo xuống làm mới, lưu phiên đăng nhập, đính kèm tệp/ảnh và tải tệp về máy. Liên kết dùng thử sẽ được cập nhật sau.',
+      description: 'Ứng dụng mở Hệ thống Báo cáo Nội bộ (CLM) của VNPT Ninh Bình trên điện thoại (Android): Ứng dụng thay thế cho việc phải mở trang http://clm.vnptninhbinh.com.vn Ưu điểm gọn gàng, làm việc trực tiếp không cần mở trình duyệt, lưu coockies lâu dài. Liên kết dùng thử sẽ được cập nhật sau.',
       tags: ['Báo cáo nội bộ', 'VNPT', 'Android', 'Mới phát hành']
     }
   };
