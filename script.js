@@ -120,14 +120,14 @@
       kicker: 'NƠI LÀM VIỆC',
       title: 'HLU 5S',
       image: 'assets/icon-hlu5s.png?v=2',
-      description: 'Ứng dụng chấm 5S của VNPT Ninh Bình trên điện thoại (Android): Ứng dụng thay thế cho việc phải mở trang https://5s.vnptninhbinh.com.vn Ưu điểm gọn gàng, làm việc trực tiếp không cần mở trình duyệt, lưu coockies lâu dài. Link tải phiên bản mới nhất ở dưới đây.',
+      description: 'Ứng dụng chấm 5S của VNPT Ninh Bình: App Android bọc WebView mở trang https://5s.vnptninhbinh.com.vn Ưu điểm gọn gàng, làm việc trực tiếp không cần mở trình duyệt, lưu coockies lâu dài. Link tải phiên bản mới nhất ở dưới đây.',
       tags: ['5S', 'VNPT', 'Android', 'Đang sử dụng']
     },
     clm: {
       kicker: 'BÁO CÁO',
       title: 'HLU CLM',
       image: 'assets/icon-clm.png?v=2',
-      description: 'Ứng dụng mở Hệ thống Báo cáo Nội bộ (CLM) của VNPT Ninh Bình trên điện thoại (Android): Ứng dụng thay thế cho việc phải mở trang http://clm.vnptninhbinh.com.vn Ưu điểm gọn gàng, làm việc trực tiếp không cần mở trình duyệt, lưu coockies lâu dài. Link tải phiên bản mới nhất ở dưới đây.',
+      description: 'Ứng dụng mở Hệ thống Báo cáo (CLM) của VNPT Ninh Bình: App Android bọc WebView mở trang http://clm.vnptninhbinh.com.vn Ưu điểm gọn gàng, làm việc trực tiếp không cần mở trình duyệt, lưu coockies lâu dài. Link tải phiên bản mới nhất ở dưới đây.',
       tags: ['Báo cáo nội bộ', 'VNPT', 'Android', 'Mới phát hành']
     }
   };
