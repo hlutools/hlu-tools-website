@@ -1,274 +1,2263 @@
-<!doctype html>
-<html lang="vi">
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0a0e1a">
-  <meta name="description" content="HLU — Hệ sinh thái 4 sản phẩm cùng mang dấu ấn HLU: HLU TOOLS, HLU QUESTIONS BANK, HLU 5S và HLU CLM. Đơn giản, nhanh và hiệu quả cho mọi người.">
-  <meta name="keywords" content="HLU, HLU TOOLS, HLU CLM, HLU QUESTIONS BANK, HLU 5S, Ngân hàng câu hỏi, phần mềm tiện ích">
-  <meta name="author" content="HLU TOOLS">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="HLU TOOLS — Công cụ thông minh cho mọi người">
-  <meta property="og:description" content="Khám phá hệ sinh thái HLU: HLU TOOLS, HLU QUESTIONS BANK, HLU 5S và HLU CLM — bốn sản phẩm, một dấu ấn chung.">
-  <meta property="og:image" content="assets/og-preview.svg?v=2">
-  <meta property="og:locale" content="vi_VN">
-  <title>HLU TOOLS — Bộ công cụ thông minh cho mọi người</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HLU TOOLS — Công cụ thông minh cho mọi người</title>
+  <meta name="description" content="HLU TOOLS, HLU QUESTIONS BANK, HLU 5S và HLU CLM — bốn sản phẩm cùng mang 3 chữ cái đầu HLU, cùng một mục tiêu: giúp công việc hằng ngày trở nên đơn giản hơn, nhanh hơn và hiệu quả hơn.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #060B19;
+      --bg-darker: #040711;
+      --glass-surface: rgba(15, 23, 42, 0.62);
+      --glass-surface-strong: rgba(15, 23, 42, 0.84);
+      --glass-card-inner: rgba(255, 255, 255, 0.035);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-border-bright: rgba(0, 240, 255, 0.42);
+      --text-main: #F8FAFC;
+      --text-secondary: #CBD5E1;
+      --text-muted: #94A3B8;
+      --primary-cyan: #00F0FF;
+      --secondary-indigo: #6366F1;
+      --accent-sky: #0EA5E9;
+      --accent-emerald: #10B981;
+      --accent-rose: #F43F5E;
+      --shadow-glass: 0 20px 50px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+      --shadow-glow-cyan: 0 0 28px rgba(0, 240, 255, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      line-height: 1.65;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* AMBIENT AURORA BACKGROUND & OPTICAL GRID */
+    .aurora-Stage {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      overflow: hidden;
+      background: radial-gradient(ellipse at top, #0B1536 0%, #060B19 70%);
+    }
+
+    .aurora-blob {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(110px);
+      opacity: 0.45;
+      animation: auroraFloat 16s ease-in-out infinite alternate;
+    }
+
+    .aurora-blob.blob-1 {
+      width: 520px;
+      height: 520px;
+      top: -120px;
+      left: -100px;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.45), rgba(14, 165, 233, 0.05));
+    }
+
+    .aurora-blob.blob-2 {
+      width: 580px;
+      height: 580px;
+      top: 18%;
+      right: -160px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.45), rgba(139, 92, 246, 0.05));
+      animation-delay: -5s;
+    }
+
+    .aurora-blob.blob-3 {
+      width: 480px;
+      height: 480px;
+      bottom: 8%;
+      left: 20%;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.28), rgba(0, 240, 255, 0.05));
+      animation-delay: -9s;
+    }
+
+    .optical-grid {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(circle at 50% 35%, black 30%, transparent 85%);
+      -webkit-mask-image: radial-gradient(circle at 50% 35%, black 30%, transparent 85%);
+    }
+
+    @keyframes auroraFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(30px, -25px) scale(1.06); }
+      100% { transform: translate(-20px, 20px) scale(0.96); }
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(1.25); }
+    }
+
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* FLOATING GLASS HEADER */
+    .header-wrap {
+      position: sticky;
+      top: 16px;
+      z-index: 90;
+      padding: 0 16px;
+      margin-top: 16px;
+    }
+
+    .site-header {
+      max-width: 1180px;
+      margin: 0 auto;
+      background: rgba(10, 17, 36, 0.72);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border: 1px solid var(--glass-border);
+      border-radius: 9999px;
+      padding: 12px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-logo-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(99, 102, 241, 0.32));
+      border: 1px solid var(--glass-border-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-glow-cyan);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 13px;
+    }
+
+    .brand-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .brand-title span {
+      color: var(--primary-cyan);
+      text-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
+    }
+
+    .brand-subtitle {
+      display: block;
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-list a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 9999px;
+      transition: all 0.22s ease;
+    }
+
+    .nav-list a:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-aurora {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--primary-cyan) 0%, #38BDF8 50%, var(--secondary-indigo) 100%);
+      color: #040814;
+      box-shadow: 0 8px 25px rgba(0, 240, 255, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn-aurora:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(0, 240, 255, 0.44), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .btn-glass {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      transition: all 0.25s ease;
+    }
+
+    .btn-glass:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--glass-border-bright);
+      transform: translateY(-2px);
+    }
+
+    .play-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 9999px;
+      background: rgba(0, 240, 255, 0.16);
+      border: 1px solid rgba(0, 240, 255, 0.4);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: var(--primary-cyan);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 9999px;
+      border: 1px solid var(--glass-border);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    .mobile-drawer {
+      display: none;
+      max-width: 1180px;
+      margin: 10px auto 0;
+      background: var(--glass-surface-strong);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 18px;
+    }
+
+    .mobile-drawer.open {
+      display: block;
+    }
+
+    .mobile-drawer ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mobile-drawer a {
+      display: block;
+      padding: 10px 14px;
+      border-radius: 12px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .mobile-drawer a:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      padding: 68px 0 96px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 16px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.11);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #A7F3D0;
+      margin-bottom: 24px;
+      box-shadow: 0 0 24px rgba(16, 185, 129, 0.15);
+    }
+
+    .live-dot {
+      color: var(--accent-emerald);
+      display: inline-block;
+      animation: pulseDot 2s infinite;
+    }
+
+    .hero-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.5rem, 4.6vw, 3.85rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #FFFFFF 30%, #A5F3FC 70%, #00F0FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+
+    .hero-desc strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .hero-bottom-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--glass-border);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .scroll-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--primary-cyan);
+      text-decoration: none;
+    }
+
+    /* HERO RIGHT GLASS CLUSTER */
+    .hero-cluster-card {
+      background: var(--glass-surface);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      padding: 28px;
+      box-shadow: var(--shadow-glass);
+      position: relative;
+    }
+
+    .hero-cluster-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 30px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.45), rgba(255, 255, 255, 0.05), rgba(99, 102, 241, 0.45));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .cluster-hub {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.14), rgba(99, 102, 241, 0.18));
+      border: 1px solid rgba(0, 240, 255, 0.32);
+      margin-bottom: 18px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .cluster-hub-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      display: block;
+    }
+
+    .cluster-hub-sub {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--primary-cyan);
+    }
+
+    .cluster-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cluster-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 18px;
+      border-radius: 20px;
+      background: var(--glass-card-inner);
+      border: 1px solid var(--glass-border);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .cluster-item:hover {
+      transform: translateX(4px);
+      border-color: rgba(0, 240, 255, 0.35);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .cluster-item-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cluster-icon-orb {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.16), rgba(99, 102, 241, 0.2));
+      border: 1px solid rgba(0, 240, 255, 0.32);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--primary-cyan);
+      box-shadow: 0 0 18px rgba(0, 240, 255, 0.18);
+      flex-shrink: 0;
+    }
+
+    .cluster-item-text strong {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .cluster-item-text em {
+      font-style: normal;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    .cluster-check {
+      font-size: 1.15rem;
+      color: var(--primary-cyan);
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cluster-footer {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.14);
+      text-align: center;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    /* COMMON SECTION HEADINGS */
+    .section-block {
+      padding: 88px 0;
+      position: relative;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px solid rgba(0, 240, 255, 0.28);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      color: var(--primary-cyan);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 3.4vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+
+    .section-lead {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 760px;
+      margin-bottom: 44px;
+    }
+
+    /* 01 / VỀ HLU */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .glass-card {
+      background: var(--glass-surface);
+      backdrop-filter: blur(20px) saturate(150%);
+      -webkit-backdrop-filter: blur(20px) saturate(150%);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow-glass);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--glass-border-bright);
+      box-shadow: 0 26px 58px rgba(0, 0, 0, 0.55), 0 0 28px rgba(0, 240, 255, 0.14);
+    }
+
+    .pillar-icon-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.16), rgba(99, 102, 241, 0.22));
+      border: 1px solid rgba(0, 240, 255, 0.32);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.65rem;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(0, 240, 255, 0.15);
+    }
+
+    .pillar-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--primary-cyan);
+      margin-bottom: 6px;
+    }
+
+    .pillar-heading {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .pillar-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .stats-banner {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.75), rgba(30, 41, 59, 0.55));
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: var(--shadow-glass);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: center;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .stat-number {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #FFFFFF 20%, var(--primary-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .stats-note {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* 02 / SẢN PHẨM */
+    .filter-bar {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 7px;
+      border-radius: 9999px;
+      background: var(--glass-surface);
+      border: 1px solid var(--glass-border);
+      margin-bottom: 36px;
+    }
+
+    .filter-tab {
+      padding: 9px 20px;
+      border-radius: 9999px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .filter-tab:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .filter-tab.active {
+      background: linear-gradient(135deg, var(--primary-cyan), var(--secondary-indigo));
+      color: #040814;
+      font-weight: 700;
+      box-shadow: 0 4px 16px rgba(0, 240, 255, 0.32);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card.hidden-card {
+      display: none;
+    }
+
+    .product-meta-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #6EE7B7;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    .status-pill.release {
+      background: rgba(0, 240, 255, 0.14);
+      border-color: rgba(0, 240, 255, 0.38);
+      color: var(--primary-cyan);
+    }
+
+    .product-visual-stage {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(0, 240, 255, 0.04));
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-icon-wrapper {
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #0284C7, #2563EB);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .app-icon-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 17px;
+    }
+
+    .icon-fallback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 0.62rem;
+      line-height: 1.15;
+      padding: 4px;
+    }
+
+    .icon-fallback .emoji-symbol {
+      font-size: 1.35rem;
+      margin-bottom: 2px;
+    }
+
+    .motif-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      background: rgba(6, 11, 25, 0.65);
+      border: 1px dashed rgba(0, 240, 255, 0.42);
+      color: var(--primary-cyan);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .quiz-motif {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .quiz-opt {
+      padding: 4px 9px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--glass-border);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .quiz-opt.correct {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: rgba(16, 185, 129, 0.5);
+      color: #6EE7B7;
+    }
+
+    .product-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .product-desc {
+      font-size: 0.96rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .pill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill-tag {
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .btn-explore-product {
+      background: none;
+      border: none;
+      color: var(--primary-cyan);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-explore-product:hover {
+      background: rgba(0, 240, 255, 0.12);
+      transform: translateX(2px);
+    }
+
+    .filter-empty-state {
+      display: none;
+      text-align: center;
+      padding: 40px 24px;
+      margin-bottom: 24px;
+      border-radius: 24px;
+      background: var(--glass-surface);
+      border: 1px dashed rgba(0, 240, 255, 0.35);
+      color: var(--text-secondary);
+    }
+
+    .filter-empty-state.visible {
+      display: block;
+    }
+
+    .products-footnote {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 14px 20px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-border);
+    }
+
+    /* 03 / LỘ TRÌNH PHÁT TRIỂN */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      position: relative;
+    }
+
+    .roadmap-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .roadmap-card.active-stage {
+      border-color: var(--glass-border-bright);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 240, 255, 0.18);
+    }
+
+    .stage-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .stage-icon-node {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      background: rgba(0, 240, 255, 0.12);
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--primary-cyan);
+    }
+
+    .stage-icon-node.done {
+      background: rgba(16, 185, 129, 0.16);
+      border-color: rgba(16, 185, 129, 0.45);
+      color: #6EE7B7;
+    }
+
+    .stage-status-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--glass-border);
+      color: var(--text-secondary);
+    }
+
+    .stage-code {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--primary-cyan);
+      margin-bottom: 6px;
+    }
+
+    .stage-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .stage-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    .roadmap-note {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 16px;
+      background: var(--glass-surface);
+      border: 1px solid var(--glass-border);
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+    }
+
+    /* 04 / CAM KẾT */
+    .commitment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .commitment-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .commit-icon-box {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.16), rgba(99, 102, 241, 0.22));
+      border: 1px solid rgba(0, 240, 255, 0.32);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      box-shadow: 0 8px 24px rgba(0, 240, 255, 0.14);
+    }
+
+    .commit-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .commit-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    /* 05 / KẾT NỐI VỚI CHÚNG TÔI */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .social-buttons-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .social-glass-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-radius: 18px;
+      background: var(--glass-surface);
+      border: 1px solid var(--glass-border);
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.94rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .social-glass-btn:hover {
+      border-color: var(--glass-border-bright);
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .social-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .social-icon-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(0, 240, 255, 0.12);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-cyan);
+      font-weight: 800;
+    }
+
+    .community-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-cyan);
+      font-weight: 600;
+      font-size: 0.92rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px 0;
+    }
+
+    .contact-form-card {
+      padding: 32px;
+    }
+
+    .form-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .plane-orb {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(99, 102, 241, 0.28));
+      border: 1px solid rgba(0, 240, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+    }
+
+    .form-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .form-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-secondary);
+    }
+
+    .glass-input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: rgba(4, 7, 17, 0.65);
+      border: 1px solid var(--glass-border);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .glass-input:focus {
+      outline: none;
+      border-color: var(--primary-cyan);
+      box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.15);
+    }
+
+    textarea.glass-input {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-footnote {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* FOOTER */
+    .site-footer {
+      border-top: 1px solid var(--glass-border);
+      background: rgba(4, 7, 17, 0.75);
+      backdrop-filter: blur(16px);
+      padding: 56px 0 36px;
+      margin-top: 40px;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .footer-slogan {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover {
+      color: var(--primary-cyan);
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .back-to-top {
+      color: var(--primary-cyan);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* PRODUCT DETAIL MODAL */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(4, 7, 17, 0.78);
+      backdrop-filter: blur(14px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-glass-box {
+      max-width: 580px;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid var(--glass-border-bright);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.65), 0 0 40px rgba(0, 240, 255, 0.2);
+      position: relative;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 9999px;
+      border: 1px solid var(--glass-border);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .modal-category {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--primary-cyan);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .modal-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .modal-desc {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      margin-bottom: 20px;
+    }
+
+    .modal-notice {
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      color: #A5F3FC;
+      font-size: 0.85rem;
+      margin: 18px 0 24px;
+    }
+
+    /* TOAST NOTIFICATION */
+    .glass-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 250;
+      max-width: 400px;
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--glass-border-bright);
+      border-radius: 18px;
+      padding: 16px 20px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .glass-toast.show {
+      display: flex;
+    }
+
+    .toast-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .hero-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .pillars-grid,
+      .roadmap-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-list {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .pillars-grid,
+      .products-grid,
+      .roadmap-grid,
+      .commitment-grid,
+      .stats-grid,
+      .social-buttons-grid {
+        grid-template-columns: 1fr;
+      }
+      .site-header {
+        padding: 10px 16px;
+      }
+      .header-cta-desktop {
+        display: none;
+      }
+    }
+  </style>
 </head>
-<body>
-  <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
-  <div class="page-noise" aria-hidden="true"></div>
+<body id="top">
 
-  <header class="site-header" id="top">
-    <div class="container nav-wrap">
-      <a class="brand" href="#home" aria-label="HLU TOOLS - Trang chủ">
-        <img src="assets/logo-mau2.png?v=2" alt="" width="42" height="42">
-        <span class="brand-copy"><strong>HLU <span>TOOLS</span></strong><small>HỆ SINH THÁI CÔNG CỤ THÔNG MINH</small></span>
+  <!-- AURORA BACKGROUND & GRID -->
+  <div class="aurora-Stage" aria-hidden="true">
+    <div class="aurora-blob blob-1"></div>
+    <div class="aurora-blob blob-2"></div>
+    <div class="aurora-blob blob-3"></div>
+  </div>
+  <div class="optical-grid" aria-hidden="true"></div>
+
+  <!-- FLOATING GLASS HEADER -->
+  <div class="header-wrap">
+    <header class="site-header">
+      <a href="#home" class="brand-link">
+        <div class="brand-logo-box">
+          <img src="https://hlutools.github.io/hlu-tools-website/assets/logo-mau2.png?v=2" alt="HLU" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div style="display:none; align-items:center; justify-content:center; width:100%; height:100%;">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+              <polygon points="16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5" stroke="#00F0FF" stroke-width="2" fill="rgba(0,240,255,0.12)"/>
+              <text x="16" y="19" text-anchor="middle" fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="8" font-weight="800">HLU</text>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="brand-title">HLU <span>TOOLS</span></div>
+          <small class="brand-subtitle">HỆ SINH THÁI CÔNG CỤ THÔNG MINH</small>
+        </div>
       </a>
-      <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="primary-nav">
-        <i data-lucide="menu" aria-hidden="true"></i>
-      </button>
-      <nav class="primary-nav" id="primary-nav" aria-label="Điều hướng chính">
-        <a class="nav-link active" href="#home">Trang chủ</a>
-        <a class="nav-link" href="#about">Về dự án</a>
-        <a class="nav-link" href="#tools">Công cụ</a>
-        <a class="nav-link" href="#roadmap">Định hướng</a>
-        <a class="nav-link" href="#contact">Liên hệ</a>
-        <a class="nav-cta" href="#tools">Khám phá ngay <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+
+      <nav aria-label="Điều hướng chính">
+        <ul class="nav-list">
+          <li><a href="#home">Trang chủ</a></li>
+          <li><a href="#about">Về dự án</a></li>
+          <li><a href="#tools">Công cụ</a></li>
+          <li><a href="#roadmap">Định hướng</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+        </ul>
       </nav>
+
+      <div class="header-actions">
+        <a href="#tools" class="btn-aurora header-cta-desktop">Khám phá ngay ↗</a>
+        <button type="button" id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Mở menu">☰</button>
+      </div>
+    </header>
+
+    <div id="mobile-drawer" class="mobile-drawer">
+      <ul>
+        <li><a href="#home" class="mobile-nav-link">Trang chủ</a></li>
+        <li><a href="#about" class="mobile-nav-link">Về dự án</a></li>
+        <li><a href="#tools" class="mobile-nav-link">Công cụ</a></li>
+        <li><a href="#roadmap" class="mobile-nav-link">Định hướng</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Liên hệ</a></li>
+      </ul>
     </div>
-  </header>
+  </div>
 
-  <main id="main">
-    <section class="hero section-shell" id="home" aria-labelledby="hero-title">
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
-      <div class="container hero-layout">
-        <div class="hero-content reveal">
-          <div class="eyebrow"><span class="pulse-dot"></span> MỘT HỆ SINH THÁI · BỐN SẢN PHẨM · MỘT DẤU ẤN HLU</div>
-          <h1 id="hero-title">HLU —<br><span class="gradient-text shimmer">Bốn sản phẩm, một dấu ấn</span><br>cho mọi người.</h1>
-          <p class="hero-lead">HLU TOOLS, HLU QUESTIONS BANK, HLU 5S và HLU CLM — bốn sản phẩm cùng mang 3 chữ cái đầu <strong>HLU</strong>, cùng một mục tiêu: giúp công việc hằng ngày trở nên <strong>đơn giản hơn, nhanh hơn và hiệu quả hơn.</strong></p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#tools">Xem công cụ <i data-lucide="arrow-right" aria-hidden="true"></i></a>
-            <a class="btn btn-ghost" href="#about"><i data-lucide="play-circle" aria-hidden="true"></i> Tìm hiểu thêm</a>
+  <!-- HERO SECTION -->
+  <main>
+    <section id="home" class="hero-section">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-badge">
+            <span class="live-dot">●</span>
+            <span>MỘT HỆ SINH THÁI · BỐN SẢN PHẨM · MỘT DẤU ẤN HLU</span>
           </div>
-          <div class="hero-note"><span class="note-line"></span><span>Thiết kế vì người dùng. Phát triển bằng sự tận tâm.</span></div>
-        </div>
 
-        <div class="hero-visual reveal reveal-delay" aria-label="Minh họa hệ sinh thái HLU TOOLS">
-          <div class="orbit orbit-one"></div>
-          <div class="orbit orbit-two"></div>
-          <div class="orbit orbit-three"></div>
-          <div class="visual-core">
-            <div class="core-mark"><img src="assets/logo-mau2.png?v=2" alt="" width="76" height="76"></div>
-            <strong>HLU <span>TOOLS</span></strong>
-            <small>CÔNG CỤ THIẾT THỰC</small>
+          <h1 class="hero-title">
+            HLU —<br>
+            Bốn sản phẩm, một<br>
+            dấu ấn<br>
+            cho mọi người.
+          </h1>
+
+          <p class="hero-desc">
+            <strong>HLU TOOLS</strong>, <strong>HLU QUESTIONS BANK</strong>, <strong>HLU 5S</strong> và <strong>HLU CLM</strong> — bốn sản phẩm cùng mang 3 chữ cái đầu <strong>HLU</strong>, cùng một mục tiêu: giúp công việc hằng ngày trở nên <strong>đơn giản hơn, nhanh hơn và hiệu quả hơn</strong>.
+          </p>
+
+          <div class="hero-cta-row">
+            <a href="#tools" class="btn-aurora">Xem công cụ →</a>
+            <a href="#about" class="btn-glass">
+              <span class="play-circle">▶</span>
+              <span>Tìm hiểu thêm</span>
+            </a>
           </div>
-          <div class="float-card float-card-top"><span class="float-icon cyan"><i data-lucide="sparkles"></i></span><span><b>Tiện ích thông minh</b><small>Mọi công cụ trong một ứng dụng</small></span><i class="float-check" data-lucide="check-circle-2"></i></div>
-          <div class="float-card float-card-left"><span class="float-icon blue"><i data-lucide="zap"></i></span><span><b>Nhanh và đơn giản</b><small>Mở lên là dùng ngay</small></span><i class="float-check" data-lucide="check-circle-2"></i></div>
-          <div class="float-card float-card-right"><span class="float-icon violet"><i data-lucide="boxes"></i></span><span><b>Một hệ sinh thái</b><small>Bốn sản phẩm, chung dấu ấn HLU</small></span><i class="float-check" data-lucide="check-circle-2"></i></div>
-          <div class="visual-caption"><span></span> KẾT NỐI Ý TƯỞNG · CÔNG CỤ · CON NGƯỜI</div>
-        </div>
-      </div>
-      <a class="scroll-cue" href="#about" aria-label="Cuộn xuống phần giới thiệu"><span></span> CUỘN XUỐNG ĐỂ KHÁM PHÁ</a>
-    </section>
 
-    <section class="section section-about" id="about" aria-labelledby="about-title">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-kicker">01 / VỀ HLU</span>
-          <h2 id="about-title">Công nghệ tốt là công nghệ<br><span class="gradient-text">giải quyết được vấn đề.</span></h2>
-          <p>HLU là hệ sinh thái 4 sản phẩm cùng mang dấu ấn <strong>HLU</strong> — 3 chữ cái đầu chung của HLU TOOLS, HLU QUESTIONS BANK, HLU 5S và HLU CLM. Mỗi sản phẩm bắt đầu từ một nhu cầu thật trong học tập, công việc và sử dụng thiết bị số, hướng đến sự thiết thực, dễ tiếp cận và không ngừng hoàn thiện.</p>
-        </div>
-
-        <div class="about-cards">
-          <article class="info-card reveal">
-            <div class="card-icon"><i data-lucide="telescope" aria-hidden="true"></i></div>
-            <span class="card-index">TẦM NHÌN</span>
-            <h3>Tầm nhìn</h3>
-            <p>Trở thành hệ sinh thái công cụ hữu ích, gần gũi và đáng tin cậy, nơi công nghệ giúp mọi người làm được nhiều hơn với ít thao tác hơn.</p>
-            <div class="card-bottom-line"></div>
-          </article>
-          <article class="info-card reveal reveal-delay-1">
-            <div class="card-icon"><i data-lucide="target" aria-hidden="true"></i></div>
-            <span class="card-index">SỨ MỆNH</span>
-            <h3>Sứ mệnh</h3>
-            <p>Biến những nhu cầu thực tế thành giải pháp phần mềm dễ sử dụng, tối ưu trải nghiệm và liên tục cải tiến theo phản hồi của cộng đồng.</p>
-            <div class="card-bottom-line"></div>
-          </article>
-          <article class="info-card reveal reveal-delay-2">
-            <div class="card-icon"><i data-lucide="gem" aria-hidden="true"></i></div>
-            <span class="card-index">GIÁ TRỊ CỐT LÕI</span>
-            <h3>Giá trị cốt lõi</h3>
-            <p>Thực tế, minh bạch, tối giản và lấy người dùng làm trung tâm — những nguyên tắc định hình cách HLU TOOLS xây dựng từng sản phẩm.</p>
-            <div class="card-bottom-line"></div>
-          </article>
-        </div>
-
-        <div class="stats-panel reveal" aria-label="Tổng quan dự án">
-          <div class="stat-item"><strong class="stat-number" data-count="4">0</strong><span>Sản phẩm được giới thiệu</span></div>
-          <div class="stat-divider"></div>
-          <div class="stat-item"><strong class="stat-number" data-count="1">0</strong><span>Hệ sinh thái đang xây dựng</span></div>
-          <div class="stat-divider"></div>
-          <div class="stat-item"><strong class="stat-symbol">∞</strong><span>Không gian cho ý tưởng mới</span></div>
-          <p class="stats-footnote">* Số liệu phản ánh danh mục giới thiệu trên trang web, không phải số người dùng thực tế.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-tools" id="tools" aria-labelledby="tools-title">
-      <div class="container">
-        <div class="section-heading heading-row reveal">
-          <div>
-            <span class="section-kicker">02 / SẢN PHẨM</span>
-            <h2 id="tools-title">Những công cụ tạo nên<br><span class="gradient-text">hệ sinh thái HLU.</span></h2>
+          <div class="hero-bottom-bar">
+            <span>— Thiết kế vì người dùng. Phát triển bằng sự tận tâm.</span>
+            <a href="#about" class="scroll-hint">● CUỘN XUỐNG ĐỂ KHÁM PHÁ</a>
           </div>
-          <p>Từ tiện ích cá nhân đến các nền tảng hỗ trợ chuyên biệt — mỗi dự án đều bắt đầu từ một nhu cầu cụ thể.</p>
         </div>
 
-        <div class="filter-bar reveal" role="group" aria-label="Lọc công cụ theo danh mục">
-          <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">Tất cả <span>04</span></button>
-          <button class="filter-btn" type="button" data-filter="utility" aria-pressed="false">Tiện ích</button>
-          <button class="filter-btn" type="button" data-filter="report" aria-pressed="false">Báo cáo</button>
-          <button class="filter-btn" type="button" data-filter="security" aria-pressed="false">Bảo mật</button>
-          <button class="filter-btn" type="button" data-filter="other" aria-pressed="false">Khác</button>
-        </div>
-
-        <div class="tools-grid" id="tools-grid">
-          <article class="tool-card featured-tool reveal" data-category="utility other">
-            <div class="tool-card-top"><span class="tool-icon"><img src="assets/icon-hlutools.png?v=2" alt="Biểu tượng HLU TOOLS"></span><span class="status-pill status-live"><span></span> Đang sử dụng</span></div>
-            <div class="tool-art art-hlu" aria-hidden="true"><div class="hlu-orbit orbit-a"></div><div class="hlu-orbit orbit-b"></div><div class="hlu-center">H<span>L</span>U</div><i class="hlu-star star-a" data-lucide="plus"></i><i class="hlu-star star-b" data-lucide="sparkle"></i></div>
-            <div class="tool-meta"><span>HỆ SINH THÁI</span><span>DỰ ÁN HLU</span></div>
-            <h3>HLU TOOLS</h3>
-            <p>Ứng dụng gốc của hệ sinh thái HLU, dành cho kỹ thuật viên VNPT: tra cứu Tài liệu, Phần mềm, Firmware, Tin tức và E-Learning, cùng các công cụ hỗ trợ xử lý sự cố thực địa.</p>
-            <div class="tag-row"><span class="tag">KTV VNPT</span><span class="tag">Tra cứu</span><span class="tag">Android</span></div>
-            <button class="text-link detail-trigger" type="button" data-product="hlutools">Khám phá sản phẩm <i data-lucide="arrow-up-right" aria-hidden="true"></i></button>
-          </article>
-
-          <article class="tool-card reveal reveal-delay-1" data-category="utility other">
-            <div class="tool-card-top"><span class="tool-icon"><img src="assets/icon-questions-bank.png?v=2" alt="Biểu tượng HLU QUESTIONS BANK"></span><span class="status-pill status-live"><span></span> Đang sử dụng</span></div>
-            <div class="tool-art art-quiz" aria-hidden="true"><div class="quiz-paper"><div class="quiz-topline"></div><div class="quiz-title-line"></div><div class="quiz-option"><i> A </i><b></b></div><div class="quiz-option selected"><i> B </i><b></b><span><i data-lucide="check"></i></span></div><div class="quiz-option"><i> C </i><b></b></div><div class="quiz-option"><i> D </i><b></b></div></div><div class="quiz-orbit"></div></div>
-            <div class="tool-meta"><span>HỌC TẬP</span><span>DỰ ÁN HLU</span></div>
-            <h3>HLU QUESTIONS BANK</h3>
-            <p>Ngân hàng câu hỏi E-Learning cho kỹ thuật viên: tìm nhanh theo từ khóa, phân loại theo chủ đề, tra cứu được cả khi ngoại tuyến sau khi đã tải trang.</p>
-            <div class="tag-row"><span class="tag">Học tập</span><span class="tag">Tra cứu</span><span class="tag">E-Learning</span></div>
-            <button class="text-link detail-trigger" type="button" data-product="question">Khám phá sản phẩm <i data-lucide="arrow-up-right" aria-hidden="true"></i></button>
-          </article>
-
-          <article class="tool-card reveal reveal-delay-2" data-category="utility other">
-            <div class="tool-card-top"><span class="tool-icon"><img src="assets/icon-hlu5s.png?v=2" alt="Biểu tượng HLU 5S"></span><span class="status-pill status-live"><span></span> Đang sử dụng</span></div>
-            <div class="tool-art art-hlu" aria-hidden="true"><div class="hlu-orbit orbit-a"></div><div class="hlu-orbit orbit-b"></div><div class="hlu-center">5<span>S</span></div><i class="hlu-star star-a" data-lucide="plus"></i><i class="hlu-star star-b" data-lucide="sparkle"></i></div>
-            <div class="tool-meta"><span>NƠI LÀM VIỆC</span><span>DỰ ÁN HLU</span></div>
-            <h3>HLU 5S</h3>
-            <p>Ứng dụng chấm 5S máy lắp đặt mới, máy báo hỏng của VNPT Ninh Bình trên di động.</p>
-            <div class="tag-row"><span class="tag">5S</span><span class="tag">VNPT</span><span class="tag">Android</span></div>
-            <button class="text-link detail-trigger" type="button" data-product="hlu5s">Khám phá sản phẩm <i data-lucide="arrow-up-right" aria-hidden="true"></i></button>
-          </article>
-
-          <article class="tool-card reveal reveal-delay-3" data-category="report utility">
-            <div class="tool-card-top"><span class="tool-icon"><img src="assets/icon-clm.png?v=2" alt="Biểu tượng HLU CLM"></span><span class="status-pill status-live"><span></span> Mới phát hành</span></div>
-            <div class="tool-art art-hlu" aria-hidden="true"><div class="hlu-orbit orbit-a"></div><div class="hlu-orbit orbit-b"></div><div class="hlu-center">C<span>L</span>M</div><i class="hlu-star star-a" data-lucide="plus"></i><i class="hlu-star star-b" data-lucide="sparkle"></i></div>
-            <div class="tool-meta"><span>BÁO CÁO</span><span>DỰ ÁN HLU</span></div>
-            <h3>HLU CLM</h3>
-            <p>Ứng dụng Báo cáo Nội bộ VNPT Ninh Bình trên điện thoại: Theo dõi thuê bao có nguy cơ rời mạng cao, gia hạn trả trước.</p>
-            <div class="tag-row"><span class="tag">Báo cáo nội bộ</span><span class="tag">VNPT</span><span class="tag">Android</span></div>
-            <button class="text-link detail-trigger" type="button" data-product="clm">Khám phá sản phẩm <i data-lucide="arrow-up-right" aria-hidden="true"></i></button>
-          </article>
-        </div>
-        <p class="tools-note"><i data-lucide="info" aria-hidden="true"></i> Liên kết dùng thử từng sản phẩm sẽ được cập nhật sau. Trạng thái và mô tả sản phẩm có thể được cập nhật khi dự án thay đổi.</p>
-      </div>
-    </section>
-
-    <section class="section section-roadmap" id="roadmap" aria-labelledby="roadmap-title">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-kicker">03 / LỘ TRÌNH PHÁT TRIỂN</span>
-          <h2 id="roadmap-title">Phát triển có định hướng.<br><span class="gradient-text">Hoàn thiện từng bước.</span></h2>
-          <p>HLU TOOLS ưu tiên xây dựng nền tảng vững chắc, phát hành có kiểm soát và cải tiến sản phẩm dựa trên nhu cầu thực tế.</p>
-        </div>
-        <div class="roadmap-track">
-          <article class="roadmap-item done reveal"><div class="roadmap-marker"><i data-lucide="check" aria-hidden="true"></i></div><span class="roadmap-date">GIAI ĐOẠN 01</span><h3>Khởi tạo ý tưởng</h3><p>Xác định nhu cầu, định hình định hướng và xây dựng những sản phẩm đầu tiên.</p><span class="roadmap-state">Đã triển khai</span></article>
-          <article class="roadmap-item current reveal reveal-delay-1"><div class="roadmap-marker"><i data-lucide="loader-circle" aria-hidden="true"></i></div><span class="roadmap-date">GIAI ĐOẠN 02</span><h3>Phát triển sản phẩm</h3><p>Hoàn thiện tính năng cốt lõi, tối ưu trải nghiệm và chuẩn hóa nhận diện hệ sinh thái.</p><span class="roadmap-state">Đang thực hiện</span></article>
-          <article class="roadmap-item upcoming reveal reveal-delay-2"><div class="roadmap-marker"><i data-lucide="rocket" aria-hidden="true"></i></div><span class="roadmap-date">GIAI ĐOẠN 03</span><h3>Mở rộng hệ sinh thái</h3><p>Bổ sung công cụ mới, cải thiện khả năng kết nối và mở rộng kênh tiếp nhận phản hồi.</p><span class="roadmap-state">Kế hoạch tiếp theo</span></article>
-          <article class="roadmap-item upcoming reveal reveal-delay-3"><div class="roadmap-marker"><i data-lucide="users" aria-hidden="true"></i></div><span class="roadmap-date">GIAI ĐOẠN 04</span><h3>Kết nối cộng đồng</h3><p>Xây dựng không gian chia sẻ, hỗ trợ người dùng và phát triển cùng cộng đồng.</p><span class="roadmap-state">Định hướng</span></article>
-        </div>
-        <div class="roadmap-disclaimer"><i data-lucide="calendar-clock" aria-hidden="true"></i> Lộ trình mang tính định hướng, thời điểm cụ thể sẽ được công bố khi có kế hoạch chính thức.</div>
-      </div>
-    </section>
-
-    <section class="section section-promise" id="promise" aria-labelledby="promise-title">
-      <div class="container">
-        <div class="section-heading centered reveal">
-          <span class="section-kicker">04 / CAM KẾT</span>
-          <h2 id="promise-title">Những điều HLU TOOLS<br><span class="gradient-text">luôn hướng đến.</span></h2>
-          <p>Không chỉ tạo ra công cụ, chúng tôi hướng đến những trải nghiệm đáng tin cậy và hữu ích lâu dài.</p>
-        </div>
-        <div class="promise-grid">
-          <article class="promise-card reveal"><div class="promise-icon"><i data-lucide="shield-check" aria-hidden="true"></i></div><h3>An toàn & minh bạch</h3><p>Đề cao quyền riêng tư, thông tin rõ ràng và cách sử dụng có trách nhiệm.</p></article>
-          <article class="promise-card reveal reveal-delay-1"><div class="promise-icon"><i data-lucide="heart-handshake" aria-hidden="true"></i></div><h3>Hướng đến cộng đồng</h3><p>Lắng nghe góp ý và ưu tiên những cải tiến mang lại giá trị thực tế.</p></article>
-          <article class="promise-card reveal reveal-delay-2"><div class="promise-icon"><i data-lucide="gauge" aria-hidden="true"></i></div><h3>Gọn nhẹ & hiệu quả</h3><p>Tập trung vào trải nghiệm nhanh, giao diện trực quan và thao tác dễ hiểu.</p></article>
-          <article class="promise-card reveal reveal-delay-3"><div class="promise-icon"><i data-lucide="messages-square" aria-hidden="true"></i></div><h3>Không ngừng cải tiến</h3><p>Phát triển từng bước, tiếp nhận phản hồi và cập nhật theo nhu cầu người dùng.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact" aria-labelledby="contact-title">
-      <div class="contact-glow" aria-hidden="true"></div>
-      <div class="container contact-layout">
-        <div class="contact-copy reveal">
-          <span class="section-kicker">05 / KẾT NỐI VỚI CHÚNG TÔI</span>
-          <h2 id="contact-title">Một ý tưởng hay?<br><span class="gradient-text">Cùng biến nó thành công cụ.</span></h2>
-          <p>Đóng góp ý kiến, báo lỗi hoặc kết nối cùng HLU TOOLS. Mọi phản hồi đều là chất liệu quý để dự án hoàn thiện hơn.</p>
-          <div class="social-links" aria-label="Kênh liên hệ">
-            <a href="#" class="social-link placeholder-link" data-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg><span>Facebook</span><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
-            <a href="#" class="social-link placeholder-link" data-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
-            <a href="#" class="social-link placeholder-link" data-label="Zalo"><i data-lucide="message-circle" aria-hidden="true"></i><span>Zalo</span><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
-            <a href="mailto:YOUR_EMAIL@example.com" class="social-link"><i data-lucide="mail" aria-hidden="true"></i><span>Email</span><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+        <!-- RIGHT GLASS ILLUSTRATION CLUSTER -->
+        <div class="hero-cluster-card">
+          <div class="cluster-hub">
+            <div class="brand-logo-box">
+              <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+                <polygon points="16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5" stroke="#00F0FF" stroke-width="2" fill="rgba(0,240,255,0.15)"/>
+                <text x="16" y="19" text-anchor="middle" fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="8" font-weight="800">HLU</text>
+              </svg>
+            </div>
+            <div>
+              <strong class="cluster-hub-title">HLU TOOLS</strong>
+              <span class="cluster-hub-sub">CÔNG CỤ THIẾT THỰC</span>
+            </div>
           </div>
-          <a class="community-link placeholder-link" href="#" data-label="Cộng đồng HLU TOOLS">Tham gia cộng đồng <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+
+          <div class="cluster-list">
+            <div class="cluster-item">
+              <div class="cluster-item-left">
+                <div class="cluster-icon-orb" aria-hidden="true">✦</div>
+                <div class="cluster-item-text">
+                  <strong>Tiện ích thông minh</strong>
+                  <em>Mọi công cụ trong một ứng dụng</em>
+                </div>
+              </div>
+              <span class="cluster-check" aria-label="Đã chọn">☑</span>
+            </div>
+
+            <div class="cluster-item">
+              <div class="cluster-item-left">
+                <div class="cluster-icon-orb" aria-hidden="true">⚡</div>
+                <div class="cluster-item-text">
+                  <strong>Nhanh và đơn giản</strong>
+                  <em>Mở lên là dùng ngay</em>
+                </div>
+              </div>
+              <span class="cluster-check" aria-label="Đã chọn">☑</span>
+            </div>
+
+            <div class="cluster-item">
+              <div class="cluster-item-left">
+                <div class="cluster-icon-orb" aria-hidden="true">⚛</div>
+                <div class="cluster-item-text">
+                  <strong>Một hệ sinh thái</strong>
+                  <em>Bốn sản phẩm, chung dấu ấn HLU</em>
+                </div>
+              </div>
+              <span class="cluster-check" aria-label="Đã chọn">☑</span>
+            </div>
+          </div>
+
+          <div class="cluster-footer">
+            — KẾT NỐI Ý TƯỞNG · CÔNG CỤ · CON NGƯỜI
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 / VỀ HLU -->
+    <section id="about" class="section-block">
+      <div class="container">
+        <span class="section-eyebrow">01 / VỀ HLU</span>
+        <h2 class="section-title">Công nghệ tốt là công nghệ giải quyết được vấn đề.</h2>
+        <p class="section-lead">
+          HLU là hệ sinh thái 4 sản phẩm cùng mang dấu ấn HLU — 3 chữ cái đầu chung của HLU TOOLS, HLU QUESTIONS BANK, HLU 5S và HLU CLM. Mỗi sản phẩm bắt đầu từ một nhu cầu thật trong học tập, công việc và sử dụng thiết bị số, hướng đến sự thiết thực, dễ tiếp cận và không ngừng hoàn thiện.
+        </p>
+
+        <div class="pillars-grid">
+          <!-- TẦM NHÌN -->
+          <article class="glass-card">
+            <div class="pillar-icon-wrap" aria-hidden="true">🔭</div>
+            <span class="pillar-label">TẦM NHÌN</span>
+            <h3 class="pillar-heading">Tầm nhìn</h3>
+            <p class="pillar-desc">
+              Trở thành hệ sinh thái công cụ hữu ích, gần gũi và đáng tin cậy, nơi công nghệ giúp mọi người làm được nhiều hơn với ít thao tác hơn.
+            </p>
+          </article>
+
+          <!-- SỨ MỆNH -->
+          <article class="glass-card">
+            <div class="pillar-icon-wrap" aria-hidden="true">🎯</div>
+            <span class="pillar-label">SỨ MỆNH</span>
+            <h3 class="pillar-heading">Sứ mệnh</h3>
+            <p class="pillar-desc">
+              Biến những nhu cầu thực tế thành giải pháp phần mềm dễ sử dụng, tối ưu trải nghiệm và liên tục cải tiến theo phản hồi của cộng đồng.
+            </p>
+          </article>
+
+          <!-- GIÁ TRỊ CỐT LÕI -->
+          <article class="glass-card">
+            <div class="pillar-icon-wrap" aria-hidden="true">💎</div>
+            <span class="pillar-label">GIÁ TRỊ CỐT LÕI</span>
+            <h3 class="pillar-heading">Giá trị cốt lõi</h3>
+            <p class="pillar-desc">
+              Thực tế, minh bạch, tối giản và lấy người dùng làm trung tâm — những nguyên tắc định hình cách HLU TOOLS xây dựng từng sản phẩm.
+            </p>
+          </article>
         </div>
 
-        <form class="contact-form reveal reveal-delay-1" id="contact-form">
-          <div class="form-heading"><span class="form-icon"><i data-lucide="send" aria-hidden="true"></i></span><div><h3>Gửi lời nhắn</h3><p>Hãy chia sẻ điều bạn đang quan tâm.</p></div></div>
-          <label for="contact-name">Họ và tên</label>
-          <input id="contact-name" name="name" type="text" placeholder="Tên của bạn" autocomplete="name" required>
-          <label for="contact-email">Email</label>
-          <input id="contact-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
-          <label for="contact-message">Nội dung</label>
-          <textarea id="contact-message" name="message" rows="4" placeholder="Bạn muốn trao đổi điều gì?" required></textarea>
-          <button class="btn btn-primary form-submit" type="submit">Gửi lời nhắn <i data-lucide="arrow-right" aria-hidden="true"></i></button>
-          <p class="form-feedback" id="form-feedback" role="status" aria-live="polite">Biểu mẫu hiện chỉ là giao diện thử nghiệm, chưa kết nối máy chủ.</p>
-        </form>
+        <div class="stats-banner">
+          <div class="stats-grid">
+            <div>
+              <span class="stat-number">04</span>
+              <span class="stat-label">Sản phẩm được giới thiệu</span>
+            </div>
+            <div>
+              <span class="stat-number">01</span>
+              <span class="stat-label">Hệ sinh thái đang xây dựng</span>
+            </div>
+            <div>
+              <span class="stat-number">∞</span>
+              <span class="stat-label">Không gian cho ý tưởng mới</span>
+            </div>
+          </div>
+          <p class="stats-note">* Số liệu phản ánh danh mục giới thiệu trên trang web, không phải số người dùng thực tế.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / SẢN PHẨM -->
+    <section id="tools" class="section-block">
+      <div class="container">
+        <span class="section-eyebrow">02 / SẢN PHẨM</span>
+        <h2 class="section-title">Những công cụ tạo nên hệ sinh thái HLU.</h2>
+        <p class="section-lead">
+          Từ tiện ích cá nhân đến các nền tảng hỗ trợ chuyên biệt — mỗi dự án đều bắt đầu từ một nhu cầu cụ thể.
+        </p>
+
+        <div class="filter-bar" role="tablist" aria-label="Bộ lọc sản phẩm">
+          <button type="button" class="filter-tab active" data-filter="all">Tất cả 04</button>
+          <button type="button" class="filter-tab" data-filter="utility">Tiện ích</button>
+          <button type="button" class="filter-tab" data-filter="report">Báo cáo</button>
+          <button type="button" class="filter-tab" data-filter="security">Bảo mật</button>
+          <button type="button" class="filter-tab" data-filter="other">Khác</button>
+        </div>
+
+        <div id="filter-empty" class="filter-empty-state">
+          <p>Hiện chưa có sản phẩm nào trong danh mục <strong>Bảo mật</strong>. Vui lòng chọn danh mục khác để khám phá hệ sinh thái HLU.</p>
+        </div>
+
+        <div class="products-grid" id="products-grid">
+          <!-- CARD 1: HLU TOOLS -->
+          <article class="glass-card product-card" data-categories="all utility other">
+            <div>
+              <div class="product-meta-top">
+                <span>HỆ SINH THÁI · DỰ ÁN HLU</span>
+                <span class="status-pill">● Đang sử dụng</span>
+              </div>
+
+              <div class="product-visual-stage">
+                <div class="app-icon-wrapper">
+                  <img src="https://hlutools.github.io/hlu-tools-website/assets/icon-hlutools.png?v=2" alt="HLU TOOLS" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="icon-fallback" style="display:none;">
+                    <span class="emoji-symbol">🛠️🔧</span>
+                    <span>HLU TOOLS</span>
+                  </div>
+                </div>
+                <div class="motif-badge" aria-hidden="true">✦ + ( HLU ) + ✦</div>
+              </div>
+
+              <h3 class="product-title">HLU TOOLS</h3>
+              <p class="product-desc">
+                Ứng dụng gốc của hệ sinh thái HLU, dành cho kỹ thuật viên VNPT: tra cứu Tài liệu, Phần mềm, Firmware, Tin tức và E-Learning, cùng các công cụ hỗ trợ xử lý sự cố thực địa.
+              </p>
+            </div>
+
+            <div class="product-footer">
+              <div class="pill-tags">
+                <span class="pill-tag">KTV VNPT</span>
+                <span class="pill-tag">Tra cứu</span>
+                <span class="pill-tag">Android</span>
+              </div>
+              <button type="button" class="btn-explore-product" data-product="hlutools">Khám phá sản phẩm ↗</button>
+            </div>
+          </article>
+
+          <!-- CARD 2: HLU QUESTIONS BANK -->
+          <article class="glass-card product-card" data-categories="all utility other">
+            <div>
+              <div class="product-meta-top">
+                <span>HỌC TẬP · DỰ ÁN HLU</span>
+                <span class="status-pill">● Đang sử dụng</span>
+              </div>
+
+              <div class="product-visual-stage">
+                <div class="app-icon-wrapper">
+                  <img src="https://hlutools.github.io/hlu-tools-website/assets/icon-questions-bank.png?v=2" alt="HLU QUESTIONS BANK" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="icon-fallback" style="display:none;">
+                    <span class="emoji-symbol">🎓❓📖</span>
+                    <span>Q-BANK</span>
+                  </div>
+                </div>
+                <div class="quiz-motif" aria-hidden="true">
+                  <span class="quiz-opt">A</span>
+                  <span class="quiz-opt correct">B ✓</span>
+                  <span class="quiz-opt">C</span>
+                  <span class="quiz-opt">D</span>
+                </div>
+              </div>
+
+              <h3 class="product-title">HLU QUESTIONS BANK</h3>
+              <p class="product-desc">
+                Ngân hàng câu hỏi E-Learning cho kỹ thuật viên: tìm nhanh theo từ khóa, phân loại theo chủ đề, tra cứu được cả khi ngoại tuyến sau khi đã tải trang.
+              </p>
+            </div>
+
+            <div class="product-footer">
+              <div class="pill-tags">
+                <span class="pill-tag">Học tập</span>
+                <span class="pill-tag">Tra cứu</span>
+                <span class="pill-tag">E-Learning</span>
+              </div>
+              <button type="button" class="btn-explore-product" data-product="qbank">Khám phá sản phẩm ↗</button>
+            </div>
+          </article>
+
+          <!-- CARD 3: HLU 5S -->
+          <article class="glass-card product-card" data-categories="all other">
+            <div>
+              <div class="product-meta-top">
+                <span>NƠI LÀM VIỆC · DỰ ÁN HLU</span>
+                <span class="status-pill">● Đang sử dụng</span>
+              </div>
+
+              <div class="product-visual-stage">
+                <div class="app-icon-wrapper">
+                  <img src="https://hlutools.github.io/hlu-tools-website/assets/icon-hlu5s.png?v=2" alt="HLU 5S" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="icon-fallback" style="display:none;">
+                    <span class="emoji-symbol">🌐</span>
+                    <span>VNPT 5S</span>
+                  </div>
+                </div>
+                <div class="motif-badge" aria-hidden="true">✦ + ( 5S ) + ✦</div>
+              </div>
+
+              <h3 class="product-title">HLU 5S</h3>
+              <p class="product-desc">
+                Ứng dụng chấm 5S máy lắp đặt mới, máy báo hỏng của VNPT Ninh Bình trên di động.
+              </p>
+            </div>
+
+            <div class="product-footer">
+              <div class="pill-tags">
+                <span class="pill-tag">5S</span>
+                <span class="pill-tag">VNPT</span>
+                <span class="pill-tag">Android</span>
+              </div>
+              <button type="button" class="btn-explore-product" data-product="hlu5s">Khám phá sản phẩm ↗</button>
+            </div>
+          </article>
+
+          <!-- CARD 4: HLU CLM -->
+          <article class="glass-card product-card" data-categories="all report">
+            <div>
+              <div class="product-meta-top">
+                <span>BÁO CÁO · DỰ ÁN HLU</span>
+                <span class="status-pill release">● Mới phát hành</span>
+              </div>
+
+              <div class="product-visual-stage">
+                <div class="app-icon-wrapper">
+                  <img src="https://hlutools.github.io/hlu-tools-website/assets/icon-clm.png?v=2" alt="HLU CLM" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="icon-fallback" style="display:none;">
+                    <span class="emoji-symbol">🛡️👤</span>
+                    <span>CLM</span>
+                  </div>
+                </div>
+                <div class="motif-badge" aria-hidden="true">✦ + ( CLM ) + ✦</div>
+              </div>
+
+              <h3 class="product-title">HLU CLM</h3>
+              <p class="product-desc">
+                Ứng dụng Báo cáo Nội bộ VNPT Ninh Bình trên điện thoại: Theo dõi thuê bao có nguy cơ rời mạng cao, gia hạn trả trước.
+              </p>
+            </div>
+
+            <div class="product-footer">
+              <div class="pill-tags">
+                <span class="pill-tag">Báo cáo nội bộ</span>
+                <span class="pill-tag">VNPT</span>
+                <span class="pill-tag">Android</span>
+              </div>
+              <button type="button" class="btn-explore-product" data-product="hluclm">Khám phá sản phẩm ↗</button>
+            </div>
+          </article>
+        </div>
+
+        <p class="products-footnote">
+          Liên kết dùng thử từng sản phẩm sẽ được cập nhật sau. Trạng thái và mô tả sản phẩm có thể được cập nhật khi dự án thay đổi.
+        </p>
+      </div>
+    </section>
+
+    <!-- 03 / LỘ TRÌNH PHÁT TRIỂN -->
+    <section id="roadmap" class="section-block">
+      <div class="container">
+        <span class="section-eyebrow">03 / LỘ TRÌNH PHÁT TRIỂN</span>
+        <h2 class="section-title">Phát triển có định hướng. Hoàn thiện từng bước.</h2>
+        <p class="section-lead">
+          HLU TOOLS ưu tiên xây dựng nền tảng vững chắc, phát hành có kiểm soát và cải tiến sản phẩm dựa trên nhu cầu thực tế.
+        </p>
+
+        <div class="roadmap-grid">
+          <!-- GIAI ĐOẠN 01 -->
+          <article class="glass-card roadmap-card">
+            <div>
+              <div class="stage-top">
+                <div class="stage-icon-node done" aria-hidden="true">✓</div>
+                <span class="stage-status-tag">Đã triển khai</span>
+              </div>
+              <span class="stage-code">GIAI ĐOẠN 01</span>
+              <h3 class="stage-title">Khởi tạo ý tưởng</h3>
+              <p class="stage-desc">
+                Xác định nhu cầu, định hình định hướng và xây dựng những sản phẩm đầu tiên.
+              </p>
+            </div>
+          </article>
+
+          <!-- GIAI ĐOẠN 02 -->
+          <article class="glass-card roadmap-card active-stage">
+            <div>
+              <div class="stage-top">
+                <div class="stage-icon-node" aria-hidden="true">↻</div>
+                <span class="stage-status-tag" style="color:var(--primary-cyan);border-color:rgba(0,240,255,0.4);">Đang thực hiện</span>
+              </div>
+              <span class="stage-code">GIAI ĐOẠN 02</span>
+              <h3 class="stage-title">Phát triển sản phẩm</h3>
+              <p class="stage-desc">
+                Hoàn thiện tính năng cốt lõi, tối ưu trải nghiệm và chuẩn hóa nhận diện hệ sinh thái.
+              </p>
+            </div>
+          </article>
+
+          <!-- GIAI ĐOẠN 03 -->
+          <article class="glass-card roadmap-card">
+            <div>
+              <div class="stage-top">
+                <div class="stage-icon-node" aria-hidden="true">🚀</div>
+                <span class="stage-status-tag">Kế hoạch tiếp theo</span>
+              </div>
+              <span class="stage-code">GIAI ĐOẠN 03</span>
+              <h3 class="stage-title">Mở rộng hệ sinh thái</h3>
+              <p class="stage-desc">
+                Bổ sung công cụ mới, cải thiện khả năng kết nối và mở rộng kênh tiếp nhận phản hồi.
+              </p>
+            </div>
+          </article>
+
+          <!-- GIAI ĐOẠN 04 -->
+          <article class="glass-card roadmap-card">
+            <div>
+              <div class="stage-top">
+                <div class="stage-icon-node" aria-hidden="true">👥</div>
+                <span class="stage-status-tag">Định hướng</span>
+              </div>
+              <span class="stage-code">GIAI ĐOẠN 04</span>
+              <h3 class="stage-title">Kết nối cộng đồng</h3>
+              <p class="stage-desc">
+                Xây dựng không gian chia sẻ, hỗ trợ người dùng và phát triển cùng cộng đồng.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="roadmap-note">
+          <span aria-hidden="true">📅</span>
+          <span>Lộ trình mang tính định hướng, thời điểm cụ thể sẽ được công bố khi có kế hoạch chính thức.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 / CAM KẾT -->
+    <section id="commitment" class="section-block">
+      <div class="container">
+        <span class="section-eyebrow">04 / CAM KẾT</span>
+        <h2 class="section-title">Những điều HLU TOOLS luôn hướng đến.</h2>
+        <p class="section-lead">
+          Không chỉ tạo ra công cụ, chúng tôi hướng đến những trải nghiệm đáng tin cậy và hữu ích lâu dài.
+        </p>
+
+        <div class="commitment-grid">
+          <article class="glass-card commitment-card">
+            <div class="commit-icon-box" aria-hidden="true">🛡️</div>
+            <div>
+              <h3 class="commit-title">An toàn &amp; minh bạch</h3>
+              <p class="commit-desc">Đề cao quyền riêng tư, thông tin rõ ràng và cách sử dụng có trách nhiệm.</p>
+            </div>
+          </article>
+
+          <article class="glass-card commitment-card">
+            <div class="commit-icon-box" aria-hidden="true">💖</div>
+            <div>
+              <h3 class="commit-title">Hướng đến cộng đồng</h3>
+              <p class="commit-desc">Lắng nghe góp ý và ưu tiên những cải tiến mang lại giá trị thực tế.</p>
+            </div>
+          </article>
+
+          <article class="glass-card commitment-card">
+            <div class="commit-icon-box" aria-hidden="true">⏱️</div>
+            <div>
+              <h3 class="commit-title">Gọn nhẹ &amp; hiệu quả</h3>
+              <p class="commit-desc">Tập trung vào trải nghiệm nhanh, giao diện trực quan và thao tác dễ hiểu.</p>
+            </div>
+          </article>
+
+          <article class="glass-card commitment-card">
+            <div class="commit-icon-box" aria-hidden="true">💬</div>
+            <div>
+              <h3 class="commit-title">Không ngừng cải tiến</h3>
+              <p class="commit-desc">Phát triển từng bước, tiếp nhận phản hồi và cập nhật theo nhu cầu người dùng.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 / KẾT NỐI VỚI CHÚNG TÔI -->
+    <section id="contact" class="section-block">
+      <div class="container contact-grid">
+        <div>
+          <span class="section-eyebrow">05 / KẾT NỐI VỚI CHÚNG TÔI</span>
+          <h2 class="section-title">
+            Một ý tưởng hay?<br>
+            Cùng biến nó thành công cụ.
+          </h2>
+          <p class="section-lead">
+            Đóng góp ý kiến, báo lỗi hoặc kết nối cùng HLU TOOLS. Mọi phản hồi đều là chất liệu quý để dự án hoàn thiện hơn.
+          </p>
+
+          <div class="social-buttons-grid">
+            <button type="button" class="social-glass-btn" data-channel="Facebook">
+              <span class="social-left">
+                <span class="social-icon-badge">f</span>
+                <span>Facebook</span>
+              </span>
+              <span>↗</span>
+            </button>
+
+            <button type="button" class="social-glass-btn" data-channel="GitHub">
+              <span class="social-left">
+                <span class="social-icon-badge" aria-hidden="true">🐙</span>
+                <span>GitHub</span>
+              </span>
+              <span>↗</span>
+            </button>
+
+            <button type="button" class="social-glass-btn" data-channel="Zalo">
+              <span class="social-left">
+                <span class="social-icon-badge" aria-hidden="true">💬</span>
+                <span>Zalo</span>
+              </span>
+              <span>↗</span>
+            </button>
+
+            <a href="mailto:YOUR_EMAIL@example.com" class="social-glass-btn">
+              <span class="social-left">
+                <span class="social-icon-badge" aria-hidden="true">✉️</span>
+                <span>Email</span>
+              </span>
+              <span>↗</span>
+            </a>
+          </div>
+
+          <button type="button" class="community-link-btn" data-channel="Cộng đồng HLU TOOLS">
+            <span>Tham gia cộng đồng ↗</span>
+          </button>
+        </div>
+
+        <!-- CONTACT FORM -->
+        <div class="glass-card contact-form-card">
+          <div class="form-header">
+            <div class="plane-orb" aria-hidden="true">✈️</div>
+            <div>
+              <h3 class="form-title">Gửi lời nhắn</h3>
+              <p class="form-subtitle">Hãy chia sẻ điều bạn đang quan tâm.</p>
+            </div>
+          </div>
+
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="sender-name">Họ và tên</label>
+              <input type="text" id="sender-name" class="glass-input" placeholder="Tên của bạn" required>
+            </div>
+
+            <div class="form-group">
+              <label for="sender-email">Email</label>
+              <input type="email" id="sender-email" class="glass-input" placeholder="you@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="sender-message">Nội dung</label>
+              <textarea id="sender-message" class="glass-input" placeholder="Bạn muốn trao đổi điều gì?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-aurora" style="width: 100%;">Gửi lời nhắn →</button>
+            <p class="form-footnote">Biểu mẫu hiện chỉ là giao diện thử nghiệm, chưa kết nối máy chủ.</p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-main">
-      <a class="brand footer-brand" href="#home"><img src="assets/logo-mau2.png?v=2" alt="" width="38" height="38"><span class="brand-copy"><strong>HLU <span>TOOLS</span></strong><small>CÔNG CỤ THIẾT THỰC</small></span></a>
-      <p>Những công cụ nhỏ. Những khác biệt thiết thực.</p>
-      <div class="footer-nav"><a href="#about">Về dự án</a><a href="#tools">Công cụ</a><a href="#roadmap">Định hướng</a><a href="#contact">Liên hệ</a></div>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="#home" class="brand-link">
+            <div class="brand-logo-box">
+              <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+                <polygon points="16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5" stroke="#00F0FF" stroke-width="2" fill="rgba(0,240,255,0.12)"/>
+                <text x="16" y="19" text-anchor="middle" fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="8" font-weight="800">HLU</text>
+              </svg>
+            </div>
+            <div>
+              <div class="brand-title">HLU <span>TOOLS</span></div>
+              <small class="brand-subtitle">CÔNG CỤ THIẾT THỰC</small>
+            </div>
+          </a>
+          <p class="footer-slogan">Những công cụ nhỏ. Những khác biệt thiết thực.</p>
+        </div>
+
+        <ul class="footer-nav">
+          <li><a href="#about">Về dự án</a></li>
+          <li><a href="#tools">Công cụ</a></li>
+          <li><a href="#roadmap">Định hướng</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 HLU TOOLS. Bảo lưu mọi quyền.</span>
+        <span>Được làm với 🩵 vì trải nghiệm tốt hơn.</span>
+        <a href="#top" class="back-to-top">Lên đầu trang ↑</a>
+      </div>
     </div>
-    <div class="container footer-bottom"><span>© <span id="current-year">2026</span> HLU TOOLS. Bảo lưu mọi quyền.</span><span>Được làm với <i data-lucide="heart" aria-label="yêu thương"></i> vì trải nghiệm tốt hơn.</span><a href="#top">Lên đầu trang ↑</a></div>
   </footer>
 
-  <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title">
-    <button class="dialog-close" type="button" aria-label="Đóng cửa sổ"><i data-lucide="x" aria-hidden="true"></i></button>
-    <span class="section-kicker" id="dialog-kicker">HLU TOOLS / SẢN PHẨM</span>
-    <div class="dialog-icon" id="dialog-icon"><i data-lucide="package" aria-hidden="true"></i></div>
-    <h2 id="dialog-title">Tên sản phẩm</h2>
-    <p id="dialog-description"></p>
-    <div class="dialog-tags" id="dialog-tags"></div>
-    <p class="dialog-note"><i data-lucide="info" aria-hidden="true"></i> Liên kết dùng thử của sản phẩm sẽ được cập nhật sau.</p>
-    <a href="#contact" class="btn btn-primary dialog-cta" id="dialog-contact">Liên hệ tìm hiểu <i data-lucide="arrow-right" aria-hidden="true"></i></a>
-  </dialog>
-  <div class="dialog-backdrop" hidden></div>
+  <!-- PRODUCT DETAIL MODAL -->
+  <div id="product-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-product-title">
+    <div class="modal-glass-box">
+      <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Đóng cửa sổ">✕</button>
+      <span id="modal-product-category" class="modal-category">HLU / HỆ SINH THÁI</span>
+      <h3 id="modal-product-title" class="modal-title">HLU TOOLS</h3>
+      <p id="modal-product-desc" class="modal-desc"></p>
+      <div id="modal-product-tags" class="pill-tags"></div>
+      <div class="modal-notice">ⓘ Liên kết dùng thử của sản phẩm sẽ được cập nhật sau.</div>
+      <a href="#contact" id="modal-contact-cta" class="btn-aurora" style="width:100%;">Liên hệ tìm hiểu →</a>
+    </div>
+  </div>
+
+  <!-- GLASS TOAST NOTIFICATION -->
+  <div id="glass-toast" class="glass-toast" role="status" aria-live="polite">
+    <span id="toast-text"></span>
+    <button type="button" id="toast-close-btn" class="toast-close" aria-label="Đóng thông báo">✕</button>
+  </div>
+
+  <script>
+    (function () {
+      // Exact verbatim modal content for all 4 products from original website
+      const PRODUCT_DETAILS = {
+        hlutools: {
+          category: 'HLU / HỆ SINH THÁI',
+          title: 'HLU TOOLS',
+          desc: 'Ứng dụng gốc của hệ sinh thái HLU, dành cho kỹ thuật viên VNPT: tra cứu Tài liệu, Phần mềm, Firmware, Tin tức và E-Learning, cùng các công cụ hỗ trợ xử lý sự cố thực địa như DHCP Explorer. Liên hệ để nhận bản dùng thử.',
+          tags: ['KTV VNPT', 'Tra cứu', 'Android', 'Đang sử dụng']
+        },
+        qbank: {
+          category: 'HLU / HỌC TẬP',
+          title: 'HLU QUESTIONS BANK',
+          desc: 'Ngân hàng câu hỏi E-Learning cho kỹ thuật viên VNPT: tìm nhanh theo từ khóa, phân loại theo chủ đề, dữ liệu được tổng hợp từ nhiều nguồn. Tra cứu được cả khi ngoại tuyến sau khi đã tải trang. Liên hệ để nhận bản dùng thử.',
+          tags: ['Học tập', 'Tra cứu', 'E-Learning', 'Đang sử dụng']
+        },
+        hlu5s: {
+          category: 'HLU / NƠI LÀM VIỆC',
+          title: 'HLU 5S',
+          desc: 'Ứng dụng chấm 5S của VNPT Ninh Bình: App Android bọc WebView mở trang https://5s.vnptninhbinh.com.vn Ưu điểm gọn gàng, làm việc trực tiếp không cần mở trình duyệt, lưu coockies lâu dài. Liên hệ để nhận bản dùng thử.',
+          tags: ['5S', 'VNPT', 'Android', 'Đang sử dụng']
+        },
+        hluclm: {
+          category: 'HLU / BÁO CÁO',
+          title: 'HLU CLM',
+          desc: 'Ứng dụng mở Hệ thống Báo cáo (CLM) của VNPT Ninh Bình: App Android bọc WebView mở trang http://clm.vnptninhbinh.com.vn Ưu điểm gọn gàng, làm việc trực tiếp không cần mở trình duyệt, lưu coockies lâu dài. Liên hệ để nhận bản dùng thử.',
+          tags: ['Báo cáo nội bộ', 'VNPT', 'Android', 'Mới phát hành']
+        }
+      };
+
+      // Mobile Navigation Drawer
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileDrawer = document.getElementById('mobile-drawer');
+      if (mobileMenuBtn && mobileDrawer) {
+        mobileMenuBtn.addEventListener('click', function () {
+          mobileDrawer.classList.toggle('open');
+        });
+        document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+          link.addEventListener('click', function () {
+            mobileDrawer.classList.remove('open');
+          });
+        });
+      }
+
+      // Product Category Filtering
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const productCards = document.querySelectorAll('.product-card');
+      const filterEmptyState = document.getElementById('filter-empty');
+
+      filterTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          const selected = tab.getAttribute('data-filter') || 'all';
+          filterTabs.forEach(function (t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+
+          let visibleCount = 0;
+          productCards.forEach(function (card) {
+            const cats = (card.getAttribute('data-categories') || '').split(/\s+/);
+            if (cats.indexOf(selected) !== -1) {
+              card.classList.remove('hidden-card');
+              visibleCount++;
+            } else {
+              card.classList.add('hidden-card');
+            }
+          });
+
+          if (filterEmptyState) {
+            if (visibleCount === 0) {
+              filterEmptyState.classList.add('visible');
+            } else {
+              filterEmptyState.classList.remove('visible');
+            }
+          }
+        });
+      });
+
+      // Product Detail Modal
+      const modal = document.getElementById('product-modal');
+      const modalCloseBtn = document.getElementById('modal-close-btn');
+      const modalCategory = document.getElementById('modal-product-category');
+      const modalTitle = document.getElementById('modal-product-title');
+      const modalDesc = document.getElementById('modal-product-desc');
+      const modalTags = document.getElementById('modal-product-tags');
+      const modalContactCta = document.getElementById('modal-contact-cta');
+
+      function openProductModal(key) {
+        const info = PRODUCT_DETAILS[key];
+        if (!info || !modal) return;
+        modalCategory.textContent = info.category;
+        modalTitle.textContent = info.title;
+        modalDesc.textContent = info.desc;
+        modalTags.innerHTML = info.tags
+          .map(function (tag) { return '<span class="pill-tag">' + tag + '</span>'; })
+          .join('');
+        modal.classList.add('open');
+      }
+
+      function closeProductModal() {
+        if (modal) modal.classList.remove('open');
+      }
+
+      document.querySelectorAll('.btn-explore-product').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          openProductModal(btn.getAttribute('data-product'));
+        });
+      });
+
+      if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', closeProductModal);
+      }
+      if (modal) {
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) closeProductModal();
+        });
+      }
+      if (modalContactCta) {
+        modalContactCta.addEventListener('click', closeProductModal);
+      }
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeProductModal();
+      });
+
+      // Toast helper
+      const toast = document.getElementById('glass-toast');
+      const toastText = document.getElementById('toast-text');
+      const toastCloseBtn = document.getElementById('toast-close-btn');
+      let toastTimer = null;
+
+      function showToast(message) {
+        if (!toast || !toastText) return;
+        toastText.textContent = message;
+        toast.classList.add('show');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () {
+          toast.classList.remove('show');
+        }, 4500);
+      }
+
+      if (toastCloseBtn) {
+        toastCloseBtn.addEventListener('click', function () {
+          if (toast) toast.classList.remove('show');
+        });
+      }
+
+      // Social Channel Buttons
+      document.querySelectorAll('[data-channel]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const channel = btn.getAttribute('data-channel');
+          showToast('Kênh ' + channel + ' đang được cập nhật liên kết chính thức. Bạn có thể để lại lời nhắn qua biểu mẫu liên hệ.');
+        });
+      });
+
+      // Contact Form Submission
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const nameInput = document.getElementById('sender-name');
+          const senderName = nameInput && nameInput.value ? nameInput.value.trim() : 'bạn';
+          showToast('Cảm ơn ' + senderName + '! Lời nhắn thử nghiệm của bạn đã được ghi nhận trên giao diện.');
+          contactForm.reset();
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
