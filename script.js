@@ -106,28 +106,28 @@
       kicker: 'HỆ SINH THÁI',
       title: 'HLU TOOLS',
       image: 'assets/icon-hlutools.png?v=2',
-      description: 'Ứng dụng gốc của hệ sinh thái HLU, dành cho kỹ thuật viên VNPT: tra cứu Tài liệu, Phần mềm, Firmware, Tin tức và E-Learning, cùng các công cụ hỗ trợ xử lý sự cố thực địa như DHCP Explorer. Link tải phiên bản mới nhất ở dưới đây.',
+      description: 'Ứng dụng gốc của hệ sinh thái HLU, dành cho kỹ thuật viên VNPT: tra cứu Tài liệu, Phần mềm, Firmware, Tin tức và E-Learning, cùng các công cụ hỗ trợ xử lý sự cố thực địa như DHCP Explorer. Liên hệ để nhận bản dùng thử.',
       tags: ['KTV VNPT', 'Tra cứu', 'Android', 'Đang sử dụng']
     },
     question: {
       kicker: 'HỌC TẬP',
       title: 'HLU QUESTIONS BANK',
       image: 'assets/icon-questions-bank.png?v=2',
-      description: 'Ngân hàng câu hỏi E-Learning cho kỹ thuật viên VNPT: tìm nhanh theo từ khóa, phân loại theo chủ đề, dữ liệu được tổng hợp từ nhiều nguồn. Tra cứu được cả khi ngoại tuyến sau khi đã tải trang. Link tải phiên bản mới nhất ở dưới đây.',
+      description: 'Ngân hàng câu hỏi E-Learning cho kỹ thuật viên VNPT: tìm nhanh theo từ khóa, phân loại theo chủ đề, dữ liệu được tổng hợp từ nhiều nguồn. Tra cứu được cả khi ngoại tuyến sau khi đã tải trang. Liên hệ để nhận bản dùng thử.',
       tags: ['Học tập', 'Tra cứu', 'E-Learning', 'Đang sử dụng']
     },
     hlu5s: {
       kicker: 'NƠI LÀM VIỆC',
       title: 'HLU 5S',
       image: 'assets/icon-hlu5s.png?v=2',
-      description: 'Ứng dụng chấm 5S của VNPT Ninh Bình: App Android bọc WebView mở trang https://5s.vnptninhbinh.com.vn Ưu điểm gọn gàng, làm việc trực tiếp không cần mở trình duyệt, lưu coockies lâu dài. Link tải phiên bản mới nhất ở dưới đây.',
+      description: 'Ứng dụng chấm 5S của VNPT Ninh Bình: App Android bọc WebView mở trang https://5s.vnptninhbinh.com.vn Ưu điểm gọn gàng, làm việc trực tiếp không cần mở trình duyệt, lưu coockies lâu dài. Liên hệ để nhận bản dùng thử.',
       tags: ['5S', 'VNPT', 'Android', 'Đang sử dụng']
     },
     clm: {
       kicker: 'BÁO CÁO',
       title: 'HLU CLM',
       image: 'assets/icon-clm.png?v=2',
-      description: 'Ứng dụng mở Hệ thống Báo cáo (CLM) của VNPT Ninh Bình: App Android bọc WebView mở trang http://clm.vnptninhbinh.com.vn Ưu điểm gọn gàng, làm việc trực tiếp không cần mở trình duyệt, lưu coockies lâu dài. Link tải phiên bản mới nhất ở dưới đây.',
+      description: 'Ứng dụng mở Hệ thống Báo cáo (CLM) của VNPT Ninh Bình: App Android bọc WebView mở trang http://clm.vnptninhbinh.com.vn Ưu điểm gọn gàng, làm việc trực tiếp không cần mở trình duyệt, lưu coockies lâu dài. Liên hệ để nhận bản dùng thử.',
       tags: ['Báo cáo nội bộ', 'VNPT', 'Android', 'Mới phát hành']
     }
   };
